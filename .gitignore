@@ -1,0 +1,13 @@
+node_modules/
+build/
+apps/
+wx-config/config.php
+coverage/
+.eslintcache
+npm-debug.log
+.idea/
+.sass-cache/
+wx-config/access.log
+wx-config/error.log
+MP_verify_8B5RgRAQYnelI9iy.txt
+MP_verify_ElrIYg05kVTwaBFF.txt

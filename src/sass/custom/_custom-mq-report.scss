@@ -1,0 +1,590 @@
+/*
+* ==============
+* Reset
+* ==============
+*/
+ol, ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+/*
+* ==============
+* Report Styles
+* ==============
+*/
+// Report container
+.zy-report-container {
+  background-color: #f1f1f1;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .zy-container-top {
+    height: $navbar-height-base;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  .zy-container-body {
+    padding: $navbar-height-base 0 0;
+
+  }
+}
+
+/*
+* Label in Summary-items table
+*/
+.zy-label {
+  font-size: 100%;
+}
+.zy-label-strong {
+  background-color: #37F4D8;
+}
+.zy-label-veryStrong {
+  background-color: #15A892;
+}
+.zy-label-superStrong {
+  background-color: #065B4F;
+}
+.zy-label-weak {
+  background-color: #FFBAC7;
+}
+.zy-label-veryWeak {
+  background-color: #FA9DAF;
+}
+.zy-label-superWeak {
+  background-color: #AD5C6B;
+}
+
+// Normal table
+.zy-table {
+  > tbody {
+    > tr:first-child {
+      border-bottom: 3px solid #15a892;
+      z-index: 2;
+    }
+    > tr {
+      > th {
+        border: none;
+        font-size: 12px;
+      }
+      > td {
+        border-top: 2px solid #fff;
+      }
+    }
+  }
+}
+
+// Modal
+.zy-modal-container {
+  display: inline-block;
+  .zy-modal-toggle {
+    font-size: 16px;
+    background: none;
+    border: none;
+    padding: 3px 5px;
+    &:focus,
+    &.focus {
+      outline: none;
+    }
+  }
+  .modal-dialog {
+    margin: 0px;
+    height: 100%;
+    .modal-content {
+      height: 100%;
+      overflow: scroll;
+      text-align: left;
+    }
+  }
+}
+
+// Section
+.zy-section-title {
+  font-size: 20px;
+  border-bottom: 1px solid #b6b6b6;
+  padding-bottom: 10px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.zy-section-subtitle {
+  border-left: #0092ff 8px solid;
+  padding-left: 0.5em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.zy-instruction-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .zy-number-col {
+    text-align: center;
+    width: 30%;
+  }
+  .zy-instruction-col {
+    font-size: 14px;
+    letter-spacing: 4px;
+    width: 65%;
+  }
+}
+.zy-font-bold {
+  font-weight: 600;
+}
+.zy-no-letter-spacing {
+  letter-spacing: 0;
+}
+.zy-title-highlight {
+  text-align: left;
+  border: 1px solid #b6b6b6;
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  padding: 4px 8px;
+  background-color: #eee;
+  letter-spacing: 0.8px;
+}
+.zy-summary-item {
+  margin-right: 5px;
+  padding: 2px 4px;
+  margin-top: 2px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.zy-summary-long,
+.zy-summary-short {
+  text-align: center;
+}
+.zy-summary-long {
+  .zy-summary-dimention {
+    background-color: #15a892;
+    color: #fff;
+  }
+}
+.zy-summary-short {
+  .zy-summary-dimention {
+    background-color: #FA9DAF;
+    color: #fff;
+  }
+}
+.zy-summary-label {
+margin-bottom: 10px;
+}
+.zy-summary-dimention-container {
+  .zy-summary-dimention {
+    border-radius: 50%;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+.zy-summary-detail-item-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.zy-padding-left-md {
+  padding-left: 10px;
+}
+.zy-summary-long {
+  .zy-summary-item {
+    //background-color: #15a892;
+    background-color: #14A05D;
+    color: #fff;
+  }
+}
+.zy-summary-short {
+  .zy-summary-item {
+    //background-color: #FA9DAF;
+    background-color: #BD4B25;
+    color: #fff;
+  }
+}
+
+.zy-conclusion-info {
+  .zy-conclusion-info-heading {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    .zy-conclusion-info-title {
+      //color: #15a892;
+      font-size: 14px;
+    }
+    .zy-conclusion-info-subtitle {
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: #808080;
+    }
+  }
+  .zy-conclusion-info-body {
+    .zy-conclusion-info-box {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      .zy-conclusion-info-meta {
+        text-align: left;
+        width: 25%;
+        flex-basis: 25%;
+        flex-grow: 1;
+        margin-right: 5px;
+        .zy-conclusion-info-label {
+          font-size: 12px;
+          color: #808080;
+        }
+        .zy-conclusion-info-item {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .zy-name-label,
+  .zy-subject-label,
+  .zy-quizType-label {
+    display: block;
+    font-size: 12px;
+    color: #808080;
+    text-align: center;
+  }
+  .zy-name,
+  .zy-subject,
+  .zy-quizType {
+    display: block;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+.zy-scores-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #eee;
+}
+.zy-conclusion-score {
+  background-color: gainsboro;
+  border-radius: 50%;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  .zy-score {
+    font-size: 32px;
+    line-height: 60px;
+  }
+  .zy-score-note {
+
+  }
+}
+.zy-conclusion-score-excellent {
+  background-color: #14A05D;
+  .zy-score {
+    color: #fff;
+  }
+  .zy-score-note {
+    color: #fff;
+  }
+}
+.zy-conclusion-score-good {
+  background-color: #F4C949;
+  .zy-score {
+    color: #fff;
+  }
+  .zy-score-note {
+    color: #fff;
+  }
+}
+.zy-conclusion-score-bad {
+  background-color: #F44950;
+  .zy-score {
+    color: #fff;
+  }
+  .zy-score-note {
+    color: #fff;
+  }
+}
+.zy-average-scores-container {
+  display: flex;
+  justify-content: space-between;
+  .zy-average-scores-box {
+    .zy-average-scores {
+      background-color: gainsboro;
+      border-radius: 50%;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      margin: auto;
+      .zy-score {
+        font-size: 16px;
+        line-height: 40px;
+      }
+      .zy-score-note {
+        font-size: 10px;
+      }
+    }
+    .zy-average-scores-note {
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+}
+.zy-average-scores-container.zy-average-scores-container-project {
+  padding: 0 10px;
+}
+
+.zy-average-scores-container.zy-average-scores-container-grade {
+  padding: 0 10px;
+}
+
+.zy-flex-align-center {
+  display: flex;
+  align-items: center;
+}
+.zy-flex-justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+.zy-flex-justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.zy-flex-justify-center {
+  display: flex;
+  justify-content: center;
+}
+.zy-report-section {
+  margin-bottom: 20px;
+  margin-bottom: 8px;
+  background-color: #fff;
+  padding: 15px 10px;
+  .zy-report-section-title {
+    font-size: 20px;
+    border-bottom: 1px solid #b6b6b6;
+    padding-bottom: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .zy-report-section-subtitle {
+
+  }
+  .zy-report-subsection {
+    margin-bottom: 25px;
+    .zy-report-subsection-title {
+      border-left: #0092ff 8px solid;
+      padding-left: 0.5em;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    .zy-report-subsection-subtitle {
+      color: #808080;
+    }
+  }
+}
+
+
+.zy-star-default {
+  color: #ddd;
+}
+.zy-star-highlight {
+  color: #F4C949;
+}
+.zy-star-label {
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.zy-label-difficult {
+  padding: 4px;
+  padding: 4px;
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+  border-radius: 4px;
+}
+.zy-label-difficult-5 {
+  color: #fff;
+  background-color: #7D3219
+  //background-color: #BD4B25;
+}
+.zy-label-difficult-4 {
+  color: #fff;
+  background-color: #BD4B25;
+  //background-color: #FA9DAF;
+}
+.zy-label-difficult-3 {
+  color: #212121;
+  background-color: #F4C949;
+}
+.zy-label-difficult-2 {
+  color: #fff;
+  background-color: #15a892;
+}
+.zy-label-difficult-1 {
+  color: #fff;
+  background-color: #14A05D;
+}
+.zy-text-align-center {
+  text-align: center;
+}
+.zy-text-align-left {
+  text-align: left;
+}
+.zy-text-align-right {
+  text-align: right;
+}
+
+// Student rank
+.zy-score-indicator-container {
+  margin-bottom: 15px;
+  padding: 0 5px;
+  .zy-score-indicator-heading {
+  }
+  .zy-score-indicator-body {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    .zy-score-indicator-label {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      margin-right: 8px;
+      justify-content: space-between;
+      .zy-score-indicator-label-content {
+        margin-right: 2px;
+      }
+    }
+    .zy-score-indicator-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      width: 72%;
+      .zy-score-indicator-item {
+        width: 10%;
+        flex-basis: 10%;
+        min-width: 10px;
+        height: 12px;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: 1px solid #ddd;
+        margin-right: 1px;
+        margin-left: 1px;
+      }
+      .zy-score-indicator-item-highlight {
+        border: 1px solid #15A892;
+        background-color: #15A892;
+      }
+    }
+  }
+  .zy-score-indicator-footer {
+    .zy-score-indicator-note {
+      text-align: left;
+      border: 1px solid #b6b6b6;
+      padding: 5px;
+      border-radius: 2px;
+      margin-bottom: 5px;
+      padding: 4px 8px;
+      background-color: #eee;
+    }
+  }
+}
+
+// Result credibility
+.zy-credibility-meta {
+  text-align: center;
+  .zy-credibility-meta-label {
+    color: #808080;
+    margin-bottom: 5px;
+  }
+  .zy-credibility-meta-item {
+    padding: 5px;
+    background-color: #808080;
+    color: #212121;
+    max-width: 65px;
+    margin: auto;
+    border-radius: 2px;
+  }
+  .zy-credibility-meta-item.zy-credibility-meta-item-normal {
+    background-color: #15A892;
+    color: #ffffff
+  }
+}
+
+// Icon list
+.zy-icon-list {
+  .zy-icon-list-item {
+    margin-bottom: 5px;
+    display: flex;
+    .zy-icon-list-icon {
+      margin-right: 1em;
+    }
+    .zy-icon-list-content {
+
+    }
+  }
+}
+
+// Profession container
+.zy-profession-container {
+  .zy-profession-item {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+}
+
+// Representative container
+.zy-representative-container {
+  display: flex;
+  justify-content: space-between;
+  .zy-representative-item {
+    text-align: center;
+    .zy-representative-img {
+      margin-bottom: 5px;
+      img {
+        width: 60px;
+      }
+    }
+    .zy-representative-name {
+      text-align: center;
+    }
+  }
+}
+
+//surveyjs样式
+.zy-survey-container-body{
+   height:100%;
+   padding: $navbar-height-base 0 0;
+}
+.panel-body{
+  .progress{
+    height: 20px;
+    position: relative;
+  }
+}
+.progress-bar{
+  span{
+    position: absolute;
+    right:20%;
+    color:#122b40;
+    font-size:12px;
+  }
+}
