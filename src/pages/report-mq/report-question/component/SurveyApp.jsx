@@ -56,6 +56,18 @@ class SurveyAPP extends React.Component{
                 that.arrTimeObj[index] = that.arrTimeObj[index] + questionTime;
             }
         };
+
+        Survey.SurveyModel.prototype.completeLastPage = function () {
+            if (this.isEditMode && this.isCurrentPageHasErrors)
+                return false;
+            if (this.doServerValidation())
+                return false;
+            setTimeout(function(){
+                this.doComplete();
+            }.bind(this),1000)
+            return true;
+        };
+
     }
     componentDidMount(){
         this.timeinit = (new Date()).valueOf();   //初始时间 不能变 用于计算整体时间
@@ -253,7 +265,7 @@ class SurveyAPP extends React.Component{
         }
 
 
-        let html = '<div class="panel-body"><p>你已经完成本次测试，生成报告时间需要1-5分钟，1-5分钟后到“我的报告”页面查看本次测试生成的报告。</p><a href="/build/html/report-list/report-view"><button class="btn-danger">点击返回测试列表</button></a></div>';
+        let html = '<div class="panel-body"><p>你已经完成本次测试，生成报告时间需要1-5分钟，1-5分钟后到“我的报告”页面查看本次测试生成的报告。</p><a href="/build/html/report-view#/todo-list"><button class="btn-danger">点击返回测试列表</button></a></div>';
 
         model.completedHtml= html;
 

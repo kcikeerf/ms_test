@@ -4,6 +4,7 @@ import getCookie from './../../../lib/getCookie';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import $ from 'jquery';
+import Preloader from './Preloader';
 
 let config = require(`./../../../config/${process.env.NODE_ENV}`);
 
@@ -11,6 +12,7 @@ class ReportListContainer extends React.Component {
     constructor() {
         super();
         this.state = {
+            classPreloader:'',
             todolist:null,
             testlist:null
         }
@@ -36,7 +38,8 @@ class ReportListContainer extends React.Component {
             let privates = responseTodo.private;
             let dataList = publicList.concat(privates);
             this.setState({
-                todolist:dataList
+                todolist:dataList,
+                classPreloader:'loaded'
             });
         }.bind(this),'json');
 
@@ -66,7 +69,8 @@ class ReportListContainer extends React.Component {
         };
 
         return (
-            <div style={style}>
+            <div style={style} className={this.state.classPreloader}>
+                <Preloader />
                 <div className="zy-report-container">
                     <div className="zy-container-top">
                         <div className="zy-nav-top">
@@ -105,7 +109,6 @@ class ReportListContainer extends React.Component {
 
             </div>
         )
-
 
     }
 }

@@ -2,13 +2,9 @@ import React from 'react';
 import $ from 'jquery';
 
 let config = require(`./../../../../config/${process.env.NODE_ENV}`);
-
 import getCookie from './../../../../lib/getCookie';
-
-// import Preloader from './Preloader';
-
 import ReportDetails from './ReportDetails';
-
+import Preloader from './Preloader';
 // import json from '../testData.json';
 
 class ReportDetailsContainer extends React.Component {
@@ -236,6 +232,7 @@ class ReportDetailsContainer extends React.Component {
         };
         return (
             <div className={this.state.classPreloader} style={style}>
+                <Preloader />
                 <ReportDetails reportDetails={this.state.output_data} />
             </div>
         )
