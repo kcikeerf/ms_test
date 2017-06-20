@@ -14,19 +14,28 @@ class UserListItem extends React.Component {
     }
 
     render() {
-        let role = this.props.role;
-        let username;
-        if(role == 'guest'){
-            username='默认'
+        let user_role = this.props.role;
+        let user_title_role;
+        let username = this.props.userDisplayName
+        if (user_role == 'teacher') {
+            user_title_role = '老师';
+        }
+        else if (user_role == 'pupil') {
+            user_title_role = '同学';
+        }
+        else if (user_role == 'area_administrator') {
+            user_title_role = '校长';
         }
         else {
-            username = this.props.userDisplayName
+            user_title_role = '';
+            username = '甄学用户';
         }
+
         return (
 
             <div className="panel">
                 <div className="panel-heading gs-user-list" onClick={this.headeUser.bind(this)}>
-                    <span>{username}用户</span>
+                    <span>{username}{user_title_role}</span>
                     <span>点击进入>>></span>
                 </div>
             </div>

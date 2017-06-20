@@ -63,6 +63,7 @@ class ViewReportAppContainer extends React.Component {
         setTimeout(function () {
             $.post(api_url, data, function (response, status) {
                 let users = $.parseJSON(response.data);
+                console.log(users);
                 if (users != null) {
                     if (users.length > 0) {
                         this.setState({
