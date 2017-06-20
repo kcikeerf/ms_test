@@ -7,7 +7,7 @@ const moment = require('moment');
 var currentDate = moment().format("YYYYMMDDHH");
 
 // cdn public path
-var cdnPublicPath = 'http://cdn.k12ke.com/zx-wx/00016110/' + currentDate + '/';
+var cdnPublicPath = 'http://cdn.k12ke.com/zx-wx/zx-survey/00016110/' + currentDate + '/';
 
 
 const TARGET = process.env.npm_lifecycle_event;
