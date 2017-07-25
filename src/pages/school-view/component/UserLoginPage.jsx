@@ -53,20 +53,19 @@ class UserLogin extends React.Component{
 
             var data = {
                 'grant_type':'password',
-                'name': event.target.userId.value, // 测试学校ID
-                'password': event.target.password.value // 测试学生ID
+                'name': event.target.userId.value,
+                'password': event.target.password.value
             };
-
 
             $.post(api_url, data, function(response,status) {
                     console.log(response);
                     createCookie('access_token',response.access_token);
                     this.setState({
                         alertClass: 'alert-success',
-                        alertMessage: '成功添加账号！正在为您跳转。'
+                        alertMessage: '登录成功！正在为您跳转。'
                     });
                     setTimeout(function () {
-                        this.context.router.push('/todo-list');
+                        this.context.router.push('/');
                     }.bind(this), 1000);
                 }.bind(this),
                 'json')
@@ -94,15 +93,15 @@ class UserLogin extends React.Component{
                 <div className="zy-oauth-container-body">
                     {alert}
                     <div className="form-group">
-                        <label htmlFor="zy-user-id">用户名</label>
+                        <label htmlFor="zy-user-id"><span className="glyphicon glyphicon-user" aria-hidden="true"></span> 用户名</label>
                         <input className="form-control zy-oauth-field" type="text" id="zy-user-id"  name="userId"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="zy-password">密码</label>
+                        <label htmlFor="zy-password"><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> 密码</label>
                         <input className="form-control zy-oauth-field" type="password" id="zy-password" name="password"/>
                     </div>
 
-                    <button className="btn btn-lg btn-primary" id="zy-oauth-submit" type="submit">登录</button>
+                    <button className="btn btn-lg btn-primary zy-btn-user" id="zy-oauth-submit" type="submit">登 录</button>
 
                 </div>
             </form>

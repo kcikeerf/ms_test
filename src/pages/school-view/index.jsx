@@ -29,7 +29,7 @@ class ViewReportAppContainer extends React.Component {
     }
 
     componentDidMount() {
-        let wx_openid = config.TEST_WECHAT_OPENID, user_name, data;
+        let wx_openid, user_name, data;
         if (process.env.DEV) {
             /*
              * 开发模式
@@ -55,46 +55,58 @@ class ViewReportAppContainer extends React.Component {
             }
         }
 
-        data={
-            'wx_openid':wx_openid
-        }
+        //获取access_token;
+        let access_token = getCookie('access_token');
+        console.log(access_token);
+        if (access_token) {
+            data = {
+                'access_token': access_token,
+                'wx_openid': wx_openid
+            }
 
-        let api_url = config.API_DOMAIN + config.API_GET_BINDED_USERS;
-        setTimeout(function () {
-            $.post(api_url, data, function (response, status) {
-                let users = $.parseJSON(response.data);
-                console.log(users);
-                if (users != null) {
-                    if (users.length > 0) {
-                        this.setState({
-                            wechatOpenId: wx_openid,
-                            hasBindedUser: true,
-                            bindedUsers: users
-                        });
+            let api_url = config.API_DOMAIN + config.API_GET_BINDED_USERS;
+            setTimeout(function () {
+                $.post(api_url, data, function (response, status) {
+                    let users = $.parseJSON(response.data);
+                    console.log(users);
+                    if (users != null) {
+                        if (users.length > 0) {
+                            this.setState({
+                                wechatOpenId: wx_openid,
+                                hasBindedUser: true,
+                                bindedUsers: users
+                            });
+                        }
+                        else {
+                            this.setState({
+                                hasBindedUser: false
+                            });
+                        }
                     }
                     else {
+                        //@TODO: 返回空数据的时候有报错
                         this.setState({
                             hasBindedUser: false
                         });
                     }
-                }
-                else {
-                    //@TODO: 返回空数据的时候有报错
+                }.bind(this), 'json').fail(function (status) {
                     this.setState({
                         hasBindedUser: false
                     });
-                }
-            }.bind(this), 'json').fail(function (status) {
-                this.setState({
-                    hasBindedUser: false
-                });
-            }.bind(this));
-        }.bind(this),0);
+                }.bind(this));
+            }.bind(this), 0);
+
+        }else {
+            this.setState({
+                hasBindedUser: false
+            });
+        }
     }
+
 
     render() {
         return (
-            <UserListContainer wechatOpenId={this.state.wechatOpenId} hasBindedUser={this.state.hasBindedUser} bindedUsers={this.state.bindedUsers} />
+            <UserListContainer wechatOpenId={this.state.wechatOpenId} hasBindedUser={this.state.hasBindedUser} bindedUsers={this.state.bindedUsers}/>
         )
     }
 }

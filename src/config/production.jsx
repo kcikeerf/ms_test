@@ -14,11 +14,14 @@ module.exports = {
     URL_MQ_REPORT_VIEW: '/zx-survey/apps/report-mq/report-view',
 
     //Report ID
-    SURVEY_MQ_QUESTION: '5939ffa94dd5e005ce0167b6',
-    SURVEY_PQ_QUESTION: 'dsfdfdfsdfdsfdsf',
+    // SURVEY_MQ_QUESTION: '5939ffa94dd5e005ce0167b6',
+    SURVEY_MQ_QUESTION: '5976a5734dd5e04d5c5e52c5',
+    SURVEY_PQ_QUESTION: '5976a5734dd5e04d5',
 
-    API_GET_BINDED_USERS: '/wx/auths/get_binded_users',
+    API_GET_BINDED_USERS: '/api/v1.2/users/get_binded_users',
     API_CHECK_BIND: '/wx/auths/check_bind',
     API_BIND_USER: '/wx/bind',
-    API_UNBIND_USER: '/wx/auths/unbind'
+    API_UNBIND_USER: '/wx/auths/unbind',
+
+    LOGO: '甄学'
 };

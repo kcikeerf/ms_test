@@ -502,57 +502,44 @@
 
 
 /*高率scss*/
-.gs-zy-report-list{
+.zx-report-list{
   border-bottom: 1px solid #cccccc;
   margin:4px 0;
   float: left;
   width: 100%;
 }
 
-.gs-zy-report-left-box{
+.zx-report-left-box{
   width:30%;
-  height:100px;
+  height:88px;
   background:#FFFFFF;
   text-align: center;
-  line-height: 100px;
+  line-height: 88px;
   float: left;
   font-size: 20px;
   border: 2px solid #f2dede;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
-.gs-zy-report-right-box{
+.zx-report-right-box{
   float: left;
   width: 70%;
-  height: 100px;
+  height: 88px;
   background: #FFFFFF;
   padding:5px 10px;
   margin-bottom: 4px
 }
-.gs-zy-report-brief{
+.zx-report-brief{
   padding: 0;
   margin: 0;
   width: 100%;
   font-size: 14px;
 }
-.gs-zy-report-describe{
-  font-size: 12px;
-  height: 40px;
+.zx-report-describe{
+  font-size: 14px;
+  padding: 4px;
   overflow: hidden;
 }
-.gs-bottom-myreport{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  background: #f0f0f0;
-  font-size: 20px;
-  letter-spacing: 5px;
-  >a{
-    color:#15A892;
-  }
-}
+
 .gs-btn-marign{
   margin: 0 4px;
 }

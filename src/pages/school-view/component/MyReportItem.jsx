@@ -15,7 +15,7 @@ class ReportItem extends React.Component{
             case config.SURVEY_MQ_QUESTION:
                 url = config.URL_MQ_REPORT_VIEW;break;
             case config.SURVEY_PQ_QUESTION:
-                url='Today Monday';break;
+                url = config.URL_PQ_REPORT_VIEW;break;
         }
         createCookie('report_url',this.props.myreport.report_url);
         window.location.href = url;
@@ -27,13 +27,13 @@ class ReportItem extends React.Component{
         return(
             <section className="zy-report-section">
 
-                <div className="gs-zy-report-list">
-                    <div className="gs-zy-report-left-box">
+                <div className="zx-report-list">
+                    <div className="zx-report-left-box">
                         测试报告
                     </div>
-                    <div className="gs-zy-report-right-box">
-                        <h3 className="gs-zy-report-brief">名称</h3>
-                        <p className="gs-zy-report-describe">{nameReport.name}</p>
+                    <div className="zx-report-right-box">
+                        <h3 className="zx-report-brief">名称</h3>
+                        <p className="zx-report-describe">{nameReport.name}</p>
                         <button className="btn-primary" onClick={this.handleReport.bind(this)}>点击查看报告</button>
                     </div>
                 </div>

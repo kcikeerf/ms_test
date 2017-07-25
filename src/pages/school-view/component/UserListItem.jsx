@@ -6,10 +6,11 @@ class UserListItem extends React.Component {
     constructor() {
         super();
     }
-    headeUser(){
+
+    headeUser() {
         let access_token = this.props.accessToken.access_token;
         let opendId = this.props.wechatOpenId;
-        createCookie('access_token',access_token);
+        createCookie('access_token', access_token);
         this.context.router.push('/todo-list');
     }
 
@@ -23,8 +24,11 @@ class UserListItem extends React.Component {
         else if (user_role == 'pupil') {
             user_title_role = '同学';
         }
-        else if (user_role == 'area_administrator') {
+        else if (user_role == 'tenant_administrator') {
             user_title_role = '校长';
+        }
+        else if (user_role == 'area_administrator') {
+            user_title_role = '局长';
         }
         else {
             user_title_role = '';
@@ -35,8 +39,17 @@ class UserListItem extends React.Component {
 
             <div className="panel">
                 <div className="panel-heading gs-user-list" onClick={this.headeUser.bind(this)}>
-                    <span>{username}{user_title_role}</span>
-                    <span>点击进入>>></span>
+                    <div className="panel-heading" role="tab">
+                        <h4 className="panel-title">
+                            <a href="javascript:;" className="zy-panel-link">
+                                <div className="zy-user-title">
+                                    <span className="zy-user-name">{username}</span>
+                                    <span className="zy-user-role">{user_title_role}</span>
+                                </div>
+                                <span className="zy-collapse glyphicon glyphicon-menu-right"></span>
+                            </a>
+                        </h4>
+                    </div>
                 </div>
             </div>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Survey from 'survey-react';
 import getCookie from './../../../../lib/getCookie';
+import createCookie from './../../../../lib/createCookie';
 import surveyQuestion from './SurveyQuestionTest';
 import $ from 'jquery';
 
@@ -72,8 +73,8 @@ class SurveyAPP extends React.Component{
     componentDidMount(){
         this.timeinit = (new Date()).valueOf();   //初始时间 不能变 用于计算整体时间
         this.timestamp = (new Date()).valueOf();  //初始时间 可变  用于计算一道题的答题时间
-
     }
+
     componentWillMount(){
         //配置默认的bootstrap的默认class类,当前使用的都是默认的类名,为了方便以更改全部把接口放出来了。
         Survey.Survey.cssType = 'bootstrap';
@@ -113,8 +114,8 @@ class SurveyAPP extends React.Component{
         Survey.defaultBootstrapCss.question={
             comment:'form-control',
             indent:'20',
-            root:'',
-            title:'',
+            root:'gs-animation',
+            title:'panel-title',
         }
         Survey.defaultBootstrapCss.radiogroup={
             item:'radio',
@@ -175,6 +176,24 @@ class SurveyAPP extends React.Component{
             obj[options.name]=options.value;
             let str=JSON.stringify(obj);
             localStorage.setItem(sessionid,str);
+
+            if(model.isLastPage){  //判断吗是否是第一页
+                $('.btn').show();
+            }else {
+                $('.btn').hide();
+
+                //加入答题过度动画效果
+                $('.gs-animation').css({
+                    'transform':'translate(-100%,0)',
+                    'transition':'transform 0.8s ease-in-out'
+                });
+            }
+
+        }
+
+        //翻页执行的回调函数事件
+        let pagechang = function () {
+            $('.btn').show();
         }
 
         //获取localStorage的值
@@ -242,6 +261,7 @@ class SurveyAPP extends React.Component{
                 wx_openid:openid,
                 result:results
             };
+            console.log(submitData);
             let url = config.API_DOMAIN+config.API_SUBMIT_RESULT;
             $.ajax({
                 url:url,
@@ -252,20 +272,17 @@ class SurveyAPP extends React.Component{
                     'Content-Type': 'application/json'
                 },
                 success: function(result) {
+                    createCookie('task_uid',result.task_uid);
                     console.log(result);
                 },
                 error:function (status) {
                     
                 }
             })
-            // $.post(url, submitData ,function (res) {
-            //
-            // }.bind(this),'json');
 
         }
 
-
-        let html = '<div class="panel-body"><p>你已经完成本次测试，生成报告时间需要1-5分钟，1-5分钟后到“我的报告”页面查看本次测试生成的报告。</p><button class="btn-danger">点击返回测试列表</button></div>';
+        let html = '<div class="panel-body"><p>你已经完成本次测试，生成报告时间需要1-5分钟，1-5分钟后到“我的报告”页面查看本次测试生成的报告。</p><a href="/build/html/report-view#/todo-list"><button class="btn-danger">点击返回测试列表</button></a></div>';
 
         model.completedHtml= html;
 
@@ -277,7 +294,12 @@ class SurveyAPP extends React.Component{
         return (
           <div className='App'>
             <div className='surveyjs'>
-              <Survey.Survey model={model} data={data} onComplete={sendDataToServer} onValueChanged={surveyValueChanged} />
+              <Survey.Survey model={model}
+                             data={data}
+                             onComplete={sendDataToServer}
+                             onValueChanged={surveyValueChanged}
+                             onCurrentPageChanged={pagechang}
+              />
             </div>
           </div>
         );

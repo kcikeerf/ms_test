@@ -26,7 +26,7 @@ class MqSurey extends React.Component{
                 if (!this.isLastPage) {
                     setTimeout(function(){
                         this.nextPage();
-                    }.bind(this),500)
+                    }.bind(this),600)
                 }
             }
         };

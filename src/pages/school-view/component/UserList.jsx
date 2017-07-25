@@ -7,11 +7,6 @@ class UserList extends React.Component {
         super();
     }
 
-    // componentWillMount() {
-    //     let has_binded_user = this.props.hasBindedUser;
-    //     let binded_users = this.props.bindedUsers;
-    // }
-
     render() {
         let users;
         let has_binded_user = this.props.hasBindedUser;
@@ -19,8 +14,8 @@ class UserList extends React.Component {
         if (has_binded_user == null) {
             users = <h3>用户列表加载中...</h3>;
         }else if(has_binded_user ===false){
-            this.context.router.push('/add-user');
-        }else if(has_binded_user ===true){
+            this.context.router.push('/user-login');
+        }else if(has_binded_user === true){
             users = binded_users.map((bindUser, index) => {
                 return <UserListItem
                     key={index}
@@ -34,7 +29,7 @@ class UserList extends React.Component {
         }
         return (
             <div className="zy-user-list">
-                <div className="panel-group">
+                <div className="panel-group" role="tablist" aria-multiselectable="true">
                     {users}
                 </div>
             </div>

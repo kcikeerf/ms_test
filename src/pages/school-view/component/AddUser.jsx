@@ -17,7 +17,7 @@ class AddUser extends React.Component {
     // 将微信号与学生账号绑定
     handleOauth(event) {
         event.preventDefault();
-        
+
         let api_url, wx_openid;
         if (process.env.DEV) {
             //@TODO: 在开发模式下，暂时不需要有绑定用户的功能
@@ -50,8 +50,8 @@ class AddUser extends React.Component {
             }
 
             var data = {
-                'user_name': event.target.userId.value, // 测试学校ID
-                'password': event.target.password.value, // 测试学生ID
+                'user_name': event.target.userId.value,
+                'password': event.target.password.value,
                 'wx_openid': wx_openid
             };
             $.post(api_url, data, function(response, status) {
@@ -71,9 +71,9 @@ class AddUser extends React.Component {
                     });
                     //this.context.router.push('/add-user');
                 }.bind(this));
-        }        
+        }
     }
-    
+
     render() {
         let alert_class = 'alert';
         let alert_message;
@@ -88,15 +88,15 @@ class AddUser extends React.Component {
                 <div className="zy-oauth-container-body">
                     {alert}
                     <div className="form-group">
-                        <label htmlFor="zy-user-id">用户名</label>
-                        <input className="form-control zy-oauth-field" type="text" id="zy-user-id"  name="userId"/>
+                        <label htmlFor="zy-user-id"><span className="glyphicon glyphicon-user" aria-hidden="true"></span> 用户名</label>
+                        <input className="form-control zy-oauth-field" type="text" id="zy-user-id"  name="userId" placeholder="请输入您的用户名"/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="zy-password">密码</label>
-                        <input className="form-control zy-oauth-field" type="password" id="zy-password" name="password"/>
+                        <label htmlFor="zy-password"><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> 密码</label>
+                        <input className="form-control zy-oauth-field" type="password" id="zy-password" name="password" placeholder="请输入您的密码"/>
                     </div>
 
-                    <button className="btn btn-lg btn-primary" id="zy-oauth-submit" type="submit">绑定账号</button>
+                    <button className="btn btn-lg btn-primary zy-btn-user" id="zy-oauth-submit" type="submit">绑定账号</button>
 
                 </div>
             </form>

@@ -8,34 +8,30 @@ class UserListContainer extends React.Component {
         super();
     }
 
-    // componentWillMount() {
-    //     let has_binded_user = this.props.hasBindedUser;
-    //     console.log(has_binded_user);
-    //     if(has_binded_user === false){
-    //         this.context.router.push('/add-user');
-    //     }
-    // }
-    handleNav(){
+    handleNav() {
         event.preventDefault();
         this.context.router.push('/settings');
     }
 
     render() {
+
         let style = {
             height: '100%'
         };
         return (
-            <div style={style}>
-                <div className="zy-report-container">
-                    <div className="zy-container-top">
-                        <div className="zy-nav-top">
-                            <span className="zy-nav-title">综合素质评价</span>
-                            <span className="zy-settings-btn" aria-hidden="true" onClick={this.handleNav.bind(this)}>设置</span>
-                        </div>
+
+            <div className="container-fluid zy-container">
+                <div className="zy-container-top">
+                    <div className="zy-nav-top">
+                        <span className="zy-nav-logo">{config.LOGO}</span>
+                        <span className="zy-nav-title">综合素质评价</span>
+                        <span className="zy-settings-btn" aria-hidden="true"
+                              onClick={this.handleNav.bind(this)}>设置</span>
                     </div>
-                    <div className="zy-container-body container-fluid">
-                        <UserList wechatOpenId={this.props.wechatOpenId} hasBindedUser={this.props.hasBindedUser} bindedUsers={this.props.bindedUsers}/>
-                    </div>
+                </div>
+                <div className="zy-container-body">
+                    <UserList wechatOpenId={this.props.wechatOpenId} hasBindedUser={this.props.hasBindedUser}
+                              bindedUsers={this.props.bindedUsers}/>
                 </div>
             </div>
         )

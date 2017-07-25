@@ -24,13 +24,13 @@ class ReportItem extends React.Component{
         return(
             <section className="zy-report-section">
 
-                <div className="gs-zy-report-list">
-                    <div className="gs-zy-report-left-box">
-                        综合测试
+                <div className="zx-report-list">
+                    <div className="zx-report-left-box">
+                        测试
                     </div>
-                    <div className="gs-zy-report-right-box">
-                        <h3 className="gs-zy-report-brief">名称</h3>
-                        <p className="gs-zy-report-describe">{nameReport.name}</p>
+                    <div className="zx-report-right-box">
+                        <h3 className="zx-report-brief">测试名称：</h3>
+                        <p className="zx-report-describe">{nameReport.name}</p>
                         <button className="btn-primary" onClick={this.handleSurvey.bind(this)}>点击自测</button>
                     </div>
                 </div>

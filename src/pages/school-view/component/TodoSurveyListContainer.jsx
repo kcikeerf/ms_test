@@ -101,10 +101,6 @@ class ReportListContainer extends React.Component {
 
                         </div>
                     </div>
-
-                    <div className="gs-bottom-myreport">
-                        <Link to="/myreport">我的报告</Link>
-                    </div>
                 </div>
 
             </div>
