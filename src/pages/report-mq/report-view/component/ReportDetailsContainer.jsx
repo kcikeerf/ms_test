@@ -73,7 +73,7 @@ class ReportDetailsContainer extends React.Component {
             let wx_openid = this.state.wx_openid;
             let access_token = this.state.access_token;
 
-            api_url = config.API_DOMAIN + api_url;
+            api_url = config.API_DOMAIN + config.API_VERSIONS +api_url;
 
             let data = {
                 'access_token':access_token

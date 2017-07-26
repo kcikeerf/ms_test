@@ -23,18 +23,25 @@ class ReportItem extends React.Component{
 
     render(){
         let nameReport = this.props.myreport;
-        console.log(nameReport);
+
         return(
             <section className="zy-report-section">
 
                 <div className="zx-report-list">
                     <div className="zx-report-left-box">
-                        测试报告
+                        报告
                     </div>
                     <div className="zx-report-right-box">
-                        <h3 className="zx-report-brief">名称</h3>
-                        <p className="zx-report-describe">{nameReport.name}</p>
-                        <button className="btn-primary" onClick={this.handleReport.bind(this)}>点击查看报告</button>
+                        <h3 className="zx-report-brief">报告名称</h3>
+                        <p className="zx-report-describe">{nameReport.name}报告</p>
+
+                        <div className="progress">
+                            <div className="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
+                                <span className="sr-only">40% Complete (success)</span>
+                            </div>
+                        </div>
+
+                        {/*<button className="btn-primary" onClick={this.handleReport.bind(this)}>点击查看报告</button>*/}
                     </div>
                 </div>
 

@@ -1,12 +1,9 @@
 [
-    {"id": "5939fbf84dd5e00d8872f08e", "order": "1(1)", "full_score":"5"},
-    {"id": "5939fbf84dd5e00d8872f08f", "order": "1(2)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f091", "order": "2(1)", "full_score":"15"},
-    {"id": "5939fbf84dd5e00d8872f092", "order": "2(2)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f093", "order": "2(3)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f095", "order": "3(1)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f097", "order": "4(1)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f098", "order": "4(2)", "full_score":"5"},
-    {"id": "5939fbf84dd5e00d8872f099", "order": "4(3)", "full_score":"10"},
-    {"id": "5939fbf84dd5e00d8872f09b", "order": "5(1)", "full_score":"15"}
+    {"id": "597071cf4dd5e01e77ba06cb", "order": "1(1)", "full_score":"5.0"},
+    {"id": "597071cf4dd5e01e77ba06cc", "order": "1(2)", "full_score":"5.0"},
+    {"id": "597071cf4dd5e01e77ba06ce", "order": "2(1)", "full_score":"5.0"},
+    {"id": "597071cf4dd5e01e77ba06d0", "order": "3(1)", "full_score":"5.0"},
+    {"id": "597071cf4dd5e01e77ba06d2", "order": "4(1)", "full_score":"10.0"},
+    {"id": "597071cf4dd5e01e77ba06d4", "order": "5(1)", "full_score":"10.0"},
+    {"id": "597071cf4dd5e01e77ba06d6", "order": "6(1)", "full_score":"10.0"}
 ]

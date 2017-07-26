@@ -6,6 +6,7 @@ module.exports = {
     // School view
     API_DOMAIN: 'http://59.110.7.209:4500',
 
+    API_VERSIONS:'/api/v1.2',
     //获取access_token的api(登录)
     API_GET_TOKEN:'/oauth/token',
     //获取未测试的列表
@@ -28,7 +29,9 @@ module.exports = {
 
     // Report URL
     URL_MQ_REPORT_QUESTION: '/build/html/report-mq/report-question',
+    URL_PQ_REPORT_QUESTION: '/build/html/report-pq/report-question',
     URL_MQ_REPORT_VIEW: '/build/html/report-mq/report-view',
+    URL_PQ_REPORT_VIEW: '/build/html/report-pq/report-view',
 
     //测试列表的地址
     URL_LIST_VIEW:'/build/html/report-view#/todo-list',
