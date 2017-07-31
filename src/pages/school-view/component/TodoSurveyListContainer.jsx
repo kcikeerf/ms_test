@@ -61,7 +61,7 @@ class ReportListContainer extends React.Component {
         $('.gs-tab-pane').eq(index).show().siblings().hide();
     }
     handleNavBack(event) {
-        this.context.router.goBack();
+        this.context.router.push('/');
     }
 
     render() {

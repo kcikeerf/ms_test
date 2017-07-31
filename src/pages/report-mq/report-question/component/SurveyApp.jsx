@@ -1,9 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
+import $ from 'jquery';
 import * as Survey from 'survey-react';
+
 import getCookie from './../../../../lib/getCookie';
 import createCookie from './../../../../lib/createCookie';
+
 import surveyQuestion from './SurveyQuestionTest';
-import $ from 'jquery';
 
 let config = require(`./../../../../config/${process.env.NODE_ENV}`);
 
@@ -14,6 +17,27 @@ class SurveyAPP extends React.Component{
         this.state={
             SurveyQuestion:surveyQuestion,
             dataIdjson:questioneId
+        };
+
+        //覆盖surveyjs框架中的类
+        Survey.SurveyModel.prototype.tryGoNextPageAutomatic = function (name) {
+            if (!this.goNextPageAutomatic || !this.currentPage)
+                return;
+            var question = this.getQuestionByName(name);
+            if (question && (!question.visible || !question.supportGoNextPageAutomatic()))
+                return;
+            var questions = this.getCurrentPageQuestions();
+            for (var i = 0; i < questions.length; i++) {
+                if (questions[i].hasInput && !this.getValue(questions[i].name))
+                    return;
+            }
+            if (!this.currentPage.hasErrors(true, false)) {
+                if (!this.isLastPage) {
+                    setTimeout(function(){
+                        this.nextPage();
+                    }.bind(this),600)
+                }
+            }
         };
 
         this.arrTimeObj = {};
@@ -209,7 +233,6 @@ class SurveyAPP extends React.Component{
             let nowDate=this.getNowDate(); //获取当前时间
             let newTimeAll = (new Date()).valueOf() - this.timeinit;
             let lastquestionTime = (new Date()).valueOf() - this.timestamp;
-            localStorage.removeItem(sessionid);  //清除本地存储
 
             this.arrTimeObj[Object.keys(survey.data).length] = lastquestionTime;
 
@@ -263,6 +286,7 @@ class SurveyAPP extends React.Component{
             };
             console.log(submitData);
             let url = config.API_DOMAIN+config.API_SUBMIT_RESULT;
+            let that = this;
             $.ajax({
                 url:url,
                 type:'post',
@@ -273,16 +297,19 @@ class SurveyAPP extends React.Component{
                 },
                 success: function(result) {
                     createCookie('task_uid',result.task_uid);
+                    let sessionid=getCookie('wx_openid');
+                    localStorage.removeItem(sessionid);  //清除本地存储
+                    that.context.router.push('/success');
                     console.log(result);
                 },
                 error:function (status) {
-                    
+                    that.context.router.push('/error');
                 }
-            })
+            });
 
         }
 
-        let html = '<div class="panel-body"><p>你已经完成本次测试，生成报告时间需要1-5分钟，1-5分钟后到“我的报告”页面查看本次测试生成的报告。</p><a href="/build/html/report-view#/todo-list"><button class="btn-danger">点击返回测试列表</button></a></div>';
+        let html = '<div class="panel-body"><p>你已经完成本次测试，请等待提交结果...</div>';
 
         model.completedHtml= html;
 
@@ -306,4 +333,9 @@ class SurveyAPP extends React.Component{
     }
 
 }
+
+SurveyAPP.contextTypes = {
+    router: PropTypes.object.isRequired
+};
+
 export default SurveyAPP;

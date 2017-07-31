@@ -6,32 +6,13 @@ import * as Survey from 'survey-react';
 import './../../../sass/style-mq-report.scss';
 
 import SurveyAPP from './component/SurveyApp';
+import Success from './component/Success';
+import Error from './component/Error';
 
 class MqSurey extends React.Component{
     constructor() {
         super();
-        //覆盖surveyjs框架中的类
-        Survey.SurveyModel.prototype.tryGoNextPageAutomatic = function (name) {
-            if (!this.goNextPageAutomatic || !this.currentPage)
-                return;
-            var question = this.getQuestionByName(name);
-            if (question && (!question.visible || !question.supportGoNextPageAutomatic()))
-                return;
-            var questions = this.getCurrentPageQuestions();
-            for (var i = 0; i < questions.length; i++) {
-                if (questions[i].hasInput && !this.getValue(questions[i].name))
-                    return;
-            }
-            if (!this.currentPage.hasErrors(true, false)) {
-                if (!this.isLastPage) {
-                    setTimeout(function(){
-                        this.nextPage();
-                    }.bind(this),600)
-                }
-            }
-        };
     }
-
 
     handleNavBack(event) {
         this.context.router.goBack();
@@ -59,4 +40,6 @@ MqSurey.contextTypes = {
 render((
     <Router history={hashHistory}>
         <Route path="/" component = {MqSurey}></Route>
+        <Route path="/success" component = {Success}></Route>
+        <Route path="/error" component = {Error}></Route>
     </Router>), document.getElementById('app'));
