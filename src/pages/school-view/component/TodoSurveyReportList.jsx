@@ -1,9 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 import TodoSurveyReportItem from './TodoSurveyReportItem';
-import TestedSurveyReportItem from './TestedSurveyReportItem'
 
-class ReportList extends React.Component{
+class TodoSurveyReportList extends React.Component {
     constructor() {
         super();
     }
@@ -11,33 +10,52 @@ class ReportList extends React.Component{
     handleNavBack(event) {
         this.context.router.goBack();
     }
-    render(){
 
+    render() {
         let dataList = this.props.data;
+        console.log(dataList);
 
-        let reportList;
-        if(dataList!=null){
-            let type = this.props.type;
-            if(type == 'todoList'){
-                reportList = dataList.map(function (obj,index) {
-                    return <TodoSurveyReportItem key={index} TodoListobj={obj} />;
+        let todoPublicList,todoPrivateList;
+        if (dataList != null) {
+            let todoPublicListData = dataList.public;
+            let todoPrivateListData = dataList.private;
+            if(todoPublicListData.length!=0){
+                todoPublicList = todoPublicListData.map(function (obj, index) {
+                    return <TodoSurveyReportItem key={index} TodoListobj={obj}/>;
                 })
-            }else if (type == 'testedList'){
-                reportList = dataList.map(function (obj,index) {
-                    return <TestedSurveyReportItem key={index} TodoListobj={obj} />;
-                })
+            }else {
+                todoPublicList = '暂时没有公开测试...';
             }
 
-        }else{
-            reportList = <div>目前还没有。。。</div>
+            if(todoPrivateListData.length!=0){
+                todoPrivateList = todoPrivateListData.map(function (obj, index) {
+                    return <TodoSurveyReportItem key={index} TodoListobj={obj}/>;
+                })
+            }else {
+                todoPrivateList = '暂时没有项目测试...';
+            }
+
+
+        } else {
+            todoPublicList = <div>目前还没有测试...</div>
         }
-        return(
-            <div>
-                {reportList}
+        return (
+            <div className="zx-todo-list">
+                <div className="zx-public-list">
+                    <h3 className="zx-survey-title">公开测试</h3>
+                    {todoPublicList}
+                </div>
+                <div className="zx-private-list">
+                    <h3 className="zx-survey-title">项目测试</h3>
+                    {todoPrivateList}
+                </div>
             </div>
         )
     }
 }
 
+TodoSurveyReportList.contextTypes = {
+    router: PropTypes.object.isRequired
+};
 
-export default ReportList;
+export default TodoSurveyReportList;

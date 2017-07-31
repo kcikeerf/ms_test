@@ -14,27 +14,26 @@ class ReportItem extends React.Component {
     }
 
     handleSurvey() {
-        let testid = this.props.TodoListobj.id;
         let url;
-        switch (testid) {
-            case config.SURVEY_MQ_QUESTION:
-                url = config.URL_MQ_REPORT_QUESTION;break;
-            case config.SURVEY_PQ_QUESTION:
-                url = config.URL_PQ_REPORT_QUESTION;break;
+        let testid = this.props.TodoListobj.id;
+        let configUrl = config.SURVEY_ID_URL;
+        for(let i=0;i<configUrl.length;i++){
+            if(testid == configUrl[i].ID){
+                url = configUrl[i].QUESTION_URL;
+            }
         }
         createCookie('question_testid', testid);
         window.location.href = url;
     }
 
     handleReport() {
-        let testid = this.props.TodoListobj.id;
         let url;
-        switch (testid)
-        {
-            case config.SURVEY_MQ_QUESTION:
-                url = config.URL_MQ_REPORT_VIEW;break;
-            case config.SURVEY_PQ_QUESTION:
-                url = config.SURVEY_PQ_QUESTION;break;
+        let testid = this.props.TodoListobj.id;
+        let configUrl = config.SURVEY_ID_URL;
+        for(let i=0;i<configUrl.length;i++){
+            if(testid == configUrl[i].ID){
+                url = configUrl[i].VIEW_URL;
+            }
         }
         createCookie('report_url',this.props.TodoListobj.report_url);
         window.location.href = url;

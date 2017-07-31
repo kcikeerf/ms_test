@@ -10,7 +10,6 @@ import $ from 'jquery';
 import TodoSurveyListContainer from './component/TodoSurveyListContainer';
 import UserLogin from './component/UserLogin';
 import Banner from './component/Banner';
-import MyreportContainer from './component/MyReportContainer';
 import UserListContainer from './component/UserListContainer';
 import SettingsPage from './component/SettingsPage';
 import AddUserPage from './component/AddUserPage';
@@ -119,7 +118,6 @@ render((
         <Route path="/" component={ViewReportAppContainer}></Route>
         <Route path="/user-login" component={UserLogin}></Route>
         <Route path="/todo-list" component={TodoSurveyListContainer}></Route>
-        <Route path="/myreport" component={MyreportContainer}></Route>
         <Route path="/settings" component={SettingsPage}></Route>
         <Route path="/add-user" component={AddUserPage}/>
         <Route path="/cancel-user" component={CancelUserPage}/>

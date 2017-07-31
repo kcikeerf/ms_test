@@ -10,10 +10,11 @@ class ReportItem extends React.Component{
     handleSurvey(){
         let url;
         let testid = this.props.TodoListobj.id;
-        if(testid == config.SURVEY_MQ_QUESTION){
-            url = config.URL_MQ_REPORT_QUESTION;
-        }else if(testid == config.SURVEY_PQ_QUESTION){
-            url = config.URL_MQ_REPORT_QUESTION;
+        let configUrl = config.SURVEY_ID_URL;
+        for(let i=0;i<configUrl.length;i++){
+            if(testid == configUrl[i].ID){
+                url = configUrl[i].QUESTION_URL;
+            }
         }
         createCookie('question_testid',testid);
         window.location.href = url;

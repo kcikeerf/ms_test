@@ -1,10 +1,11 @@
 import React from 'react';
-import TodoSurveyReportList from './TodoSurveyReportList';
-import getCookie from './../../../lib/getCookie';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router';
 import $ from 'jquery';
+import getCookie from './../../../lib/getCookie';
+
 import Preloader from './Preloader';
+import TodoSurveyReportList from './TodoSurveyReportList';
+import TestedSurveyReportList from './TestedSurveyReportList';
 
 let config = require(`./../../../config/${process.env.NODE_ENV}`);
 
@@ -34,11 +35,11 @@ class ReportListContainer extends React.Component {
         let promiseTestedListUrl = $.post(testedUrl,data);
 
         promiseTodoListUrl.done(function (responseTodo) {
-            let publicList = responseTodo.public;
-            let privates = responseTodo.private;
-            let dataList = publicList.concat(privates);
+            // let publicList = responseTodo.public;
+            // let privates = responseTodo.private;
+            // let dataList = publicList.concat(privates);
             this.setState({
-                todolist:dataList,
+                todolist:responseTodo,
                 classPreloader:'loaded'
             });
         }.bind(this),'json');
@@ -92,11 +93,11 @@ class ReportListContainer extends React.Component {
                         <div className="container-fluid zy-container-body">
 
                             <div className="gs-tab-pane">
-                                <TodoSurveyReportList data={this.state.todolist} type={'todoList'}/>
+                                <TodoSurveyReportList data={this.state.todolist} />
                             </div>
 
                             <div className="gs-tab-pane">
-                                <TodoSurveyReportList data={this.state.testlist} type = {'testedList'}/>
+                                <TestedSurveyReportList data={this.state.testlist} />
                             </div>
 
                         </div>

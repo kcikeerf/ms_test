@@ -503,7 +503,7 @@
 
 /*高率scss*/
 .zx-report-list{
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px dashed #CCCCCC;
   margin:4px 0;
   float: left;
   width: 100%;
@@ -516,7 +516,7 @@
   text-align: center;
   line-height: 88px;
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   border: 2px solid #f2dede;
   margin-bottom: 2px;
 }
@@ -560,3 +560,24 @@
   }
 
 }
+.zx-public-list{
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.zx-survey-title{
+  margin: 0;
+  font-size: 16px;
+  padding:5px 10px;
+  border-bottom: 2px solid #f0f0f0;
+  font-weight: 400;
+}
+.zx-survey-title:before{
+  content: "";
+  display: block;
+  position: relative;  /*日常绝对定位*/
+  top:15px;
+  left: -10px;
+  width: 7px;
+  height: 14px;
+  background: #0d87e9;
+ }
