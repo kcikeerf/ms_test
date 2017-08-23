@@ -36,7 +36,7 @@ module.exports = {
 
     SURVEY_ID_URL: [
         {
-            ID: '5976a5734dd5e04d5c5e52c5',                             //Report ID
+            ID: '599d49224dd5e01a214abe26',                             //Report ID
             QUESTION_URL: '/build/html/report-mq/report-question',      // Report QUESTION URL
             VIEW_URL: '/build/html/report-mq/report-view'               // Report VIEW URL
         },
