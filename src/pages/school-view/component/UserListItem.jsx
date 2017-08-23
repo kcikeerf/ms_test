@@ -8,16 +8,22 @@ class UserListItem extends React.Component {
     }
 
     headeUser() {
-        let access_token = this.props.accessToken.access_token;
+        let userAccessToken = this.props.userAccessToken;
         let opendId = this.props.wechatOpenId;
-        createCookie('access_token', access_token);
+        createCookie('select_access_token', userAccessToken);
         this.context.router.push('/todo-list');
     }
 
     render() {
-        let user_role = this.props.role;
+        let user_role = this.props.userRole;
+        let username = this.props.userDisplayName;
         let user_title_role;
-        let username = this.props.userDisplayName
+
+        if(username == '-'||username == '-'){
+            user_title_role = '';
+            username = '甄学用户';
+        }
+
         if (user_role == 'teacher') {
             user_title_role = '老师';
         }
@@ -30,13 +36,8 @@ class UserListItem extends React.Component {
         else if (user_role == 'area_administrator') {
             user_title_role = '局长';
         }
-        else {
-            user_title_role = '';
-            username = '甄学用户';
-        }
 
         return (
-
             <div className="panel">
                 <div className="panel-heading gs-user-list" onClick={this.headeUser.bind(this)}>
                     <div className="panel-heading" role="tab">
@@ -58,6 +59,6 @@ class UserListItem extends React.Component {
 
 UserListItem.contextTypes = {
     router: PropTypes.object.isRequired
-}
+};
 
 export default UserListItem;

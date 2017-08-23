@@ -21,91 +21,87 @@ class ViewReportAppContainer extends React.Component {
     constructor() {
         super();
         this.state = {
+            zxMainAccessToken: null,
+            zxAccessMatser:null,
             wechatOpenId: null,
+            wechatUnionId: null,
+            mainUser: null,
             hasBindedUser: null,
             bindedUsers: null
         };
     }
 
     componentDidMount() {
-        let wx_openid, user_name, data;
-        if (process.env.DEV) {
-            /*
-             * 开发模式
-             * 1. 无需open id
-             * 2. 用户名：fa89yycszr
-             */
-            wx_openid = config.TEST_WECHAT_OPENID;
-            user_name = config.TEST_USER_NAME;
-            let users = [
-                {
-                    user_name: user_name
-                }
-            ];
-            createCookie('wx_openid', wx_openid);
-        }
-        else {
-            if (process.env.TEST) {
-                wx_openid = config.TEST_WECHAT_OPENID;
-                createCookie('wx_openid', wx_openid);
-            }
-            else {
-                wx_openid = getCookie('wx_openid');
-            }
-        }
-
-        //获取access_token;
-        let access_token = getCookie('access_token');
-        console.log(access_token);
-        if (access_token) {
-            data = {
-                'access_token': access_token,
-                'wx_openid': wx_openid
-            }
-
-            let api_url = config.API_DOMAIN + config.API_GET_BINDED_USERS;
-            setTimeout(function () {
-                $.post(api_url, data, function (response, status) {
-                    let users = $.parseJSON(response.data);
-                    console.log(users);
-                    if (users != null) {
-                        if (users.length > 0) {
-                            this.setState({
-                                wechatOpenId: wx_openid,
-                                hasBindedUser: true,
-                                bindedUsers: users
-                            });
-                        }
-                        else {
-                            this.setState({
-                                hasBindedUser: false
-                            });
-                        }
-                    }
-                    else {
-                        //@TODO: 返回空数据的时候有报错
-                        this.setState({
-                            hasBindedUser: false
-                        });
-                    }
-                }.bind(this), 'json').fail(function (status) {
-                    this.setState({
-                        hasBindedUser: false
-                    });
-                }.bind(this));
-            }.bind(this), 0);
-
-        }else {
-            this.setState({
-                hasBindedUser: false
-            });
-        }
+        this.checkUser();
     }
 
+    // 检测微信号与学生账号绑定
+    checkUser() {
+        // 获取zx binded users
+        let zxAccessData = {
+            env: config.API_LOGIN_STATE,
+        };
+        let wxOpenId, wxUnionId, wxUserInfo;
+        if (process.env.DEV || process.env.TEST) {
+            wxOpenId = config.TEST_WECHAT_OPENID;
+            wxUnionId = config.TEST_WECHAT_UNIONID;
+            wxUserInfo = null;
+            zxAccessData = {
+                ...zxAccessData,
+                wxOpenId: wxOpenId,
+                wxUnionId: wxUnionId,
+            };
+        }
+        else {
+            wxOpenId = getCookie('wx_openid');
+            wxUnionId = getCookie('wx_unionid');
+            wxUserInfo = JSON.stringify({
+                nickname: decodeURIComponent(getCookie('wx_nickname')),
+                headimgurl: decodeURIComponent(getCookie('wx_headimgurl')),
+            });
+            zxAccessData = {
+                ...zxAccessData,
+                wxOpenId: wxOpenId,
+                wxUnionId: wxUnionId,
+                wxUserInfo: wxUserInfo
+            };
+        }
+
+        let zxAccessApi = config.WX_API_GET_ZX_ACCESS;
+        let zxAccessPromise = $.post(zxAccessApi, zxAccessData);
+        zxAccessPromise.done(function (response) {
+            let parsedResponse = JSON.parse(response);
+            let zxAccessMatser = parsedResponse.master;
+            let zxAccessSlave = parsedResponse.slave;
+            let zxMainAccessToken = zxAccessMatser.oauth.access_token;
+            let hasBindedUser = (zxAccessSlave && zxAccessSlave.length !== 0);
+            createCookie('zx_main_access_token', zxMainAccessToken);
+            this.setState({
+                zxMainAccessToken: zxMainAccessToken,
+                zxAccessMatser:zxAccessMatser,
+                wechatOpenId: wxOpenId,
+                wechatUnionId: wxUnionId,
+                mainUser: zxAccessMatser,
+                hasBindedUser: hasBindedUser,
+                bindedUsers: zxAccessSlave
+            });
+
+        }.bind(this));
+
+        // 获取zx access失败
+        zxAccessPromise.fail(function (errorResponse) {
+        }.bind(this));
+
+    }
 
     render() {
         return (
-            <UserListContainer wechatOpenId={this.state.wechatOpenId} hasBindedUser={this.state.hasBindedUser} bindedUsers={this.state.bindedUsers}/>
+            <UserListContainer
+                zxMainAccessToken={this.state.zxMainAccessToken}
+                zxAccessMatser = {this.state.zxAccessMatser}
+                hasBindedUser={this.state.hasBindedUser}
+                bindedUsers={this.state.bindedUsers}
+            />
         )
     }
 }

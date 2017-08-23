@@ -24,7 +24,7 @@ class AddUser extends React.Component {
         }
         else {
             api_url = config.API_DOMAIN + config.API_BIND_USER;
-            wx_openid = process.env.TEST ? config.TEST_WECHAT_OPENID : getCookie('wx_openid');
+            let zxMainAccessToken = getCookie('zx_main_access_token');
 
             if (event.target.userId.value == '' || event.target.userId.value == null) {
                 this.setState({
@@ -50,9 +50,10 @@ class AddUser extends React.Component {
             }
 
             var data = {
-                'user_name': event.target.userId.value,
-                'password': event.target.password.value,
-                'wx_openid': wx_openid
+                'access_token': zxMainAccessToken,
+                'target_user_from': 'password',
+                'user_name': event.target.userId.value, // 测试学校ID
+                'password': event.target.password.value, // 测试学生ID
             };
             $.post(api_url, data, function(response, status) {
                     this.setState({

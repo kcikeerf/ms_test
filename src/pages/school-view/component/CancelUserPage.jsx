@@ -30,15 +30,15 @@ class CancelUserPage extends React.Component {
         }
         else {
             api_url = config.API_DOMAIN + config.API_GET_BINDED_USERS;
-            wx_openid = process.env.TEST ? config.TEST_WECHAT_OPENID : getCookie('wx_openid');
-            
-            var data = {
-                'wx_openid': wx_openid
+            let zxMainAccessToken = getCookie('zx_main_access_token');
+
+            let data = {
+                'access_token': zxMainAccessToken
             };
 
             $.post(api_url, data, function (response, status) {
-                    let users = $.parseJSON(response.data);
-                    if (users != null && users.length > 0) {
+                    let users = response.slave;
+                    if (users && users.length > 0) {
                         this.setState({
                             hasBindedUser: true,
                             bindedUsers: users
@@ -51,8 +51,7 @@ class CancelUserPage extends React.Component {
                         });
 
                     }
-                }.bind(this),
-                'json')
+                }.bind(this), 'json')
                 .fail(function (response, status) {
                     this.setState({
                         hasBindedUser: false

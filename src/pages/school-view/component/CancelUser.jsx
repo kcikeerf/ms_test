@@ -24,11 +24,11 @@ class CancelUser extends React.Component {
         }
         else {
             api_url = config.API_DOMAIN + config.API_UNBIND_USER;
-            wx_openid = process.env.TEST ? config.TEST_WECHAT_OPENID : getCookie('wx_openid');
+            let zxMainAccessToken = getCookie('zx_main_access_token');
             
             var data = {
-                'user_name': event.target.userId.value, // 测试学校ID
-                'wx_openid': wx_openid
+                'access_token': zxMainAccessToken,
+                'user_names': [event.target.userId.value], // 测试学校ID
             };
             $.post(api_url, data, function (response, status) {
                     this.setState({
@@ -52,20 +52,12 @@ class CancelUser extends React.Component {
     render() {
         let users;
         if (this.props.hasBindedUser === null) {
-            users = <tr><td>老师列表加载中...</td></tr>;
+            users = <tr><td>列表加载中...</td></tr>;
         }
         if (this.props.hasBindedUser === true) {
-            console.log(this.props.bindedUsers);
-            let username;
             users = this.props.bindedUsers.map((bindedUser,index) => {
-                if(bindedUser.role == 'guest'){
-                    username = '默认用户';
-                }
-                else {
-                    username = bindedUser.name;
-                }
                 return <tr key={index}>
-                            <td>{username}</td>
+                            <td>{ bindedUser.name}</td>
                             <td>
                                 <form onSubmit={this.handleCancel.bind(this)}>
                                     <input type="hidden" value={bindedUser.user_name} name="userId"/>

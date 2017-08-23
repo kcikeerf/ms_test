@@ -20,7 +20,7 @@ class ReportListContainer extends React.Component {
     }
 
     componentDidMount(){
-        let access_token = getCookie('access_token');
+        let access_token = getCookie('select_access_token');
         console.log(access_token);
 
         let todolistUrl = config.API_DOMAIN+ config.API_GET_TODO_LIST;

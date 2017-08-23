@@ -14,12 +14,10 @@ class UserListContainer extends React.Component {
     }
 
     render() {
-
         let style = {
             height: '100%'
         };
         return (
-
             <div className="container-fluid zy-container">
                 <div className="zy-container-top">
                     <div className="zy-nav-top">
@@ -30,7 +28,9 @@ class UserListContainer extends React.Component {
                     </div>
                 </div>
                 <div className="zy-container-body">
-                    <UserList wechatOpenId={this.props.wechatOpenId} hasBindedUser={this.props.hasBindedUser}
+                    <UserList zxMainAccessToken={this.props.zxMainAccessToken}
+                              zxAccessMatser={this.props.zxAccessMatser}
+                              hasBindedUser={this.props.hasBindedUser}
                               bindedUsers={this.props.bindedUsers}/>
                 </div>
             </div>
