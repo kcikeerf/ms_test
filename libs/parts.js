@@ -272,13 +272,20 @@ exports.setupCSS = function (paths) {
                                 loader: "css-loader",
                                 options: {
                                     importLoaders: 1,
+                                    sourceMap: true
                                 }
                             },
                             {
-                                loader: "postcss-loader"
+                                loader: "postcss-loader",
+                                options: {
+                                    sourceMap: true
+                                }
                             },
                             {
-                                loader: "resolve-url-loader"
+                                loader: "resolve-url-loader",
+                                options: {
+                                    sourceMap: true
+                                }
                             },
                             {
                                 loader: "sass-loader",
