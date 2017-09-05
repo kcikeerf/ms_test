@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class DetailsCredibility extends React.Component {
     render() {
@@ -36,7 +37,7 @@ class DetailsCredibility extends React.Component {
 }
 
 DetailsCredibility.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsCredibility;

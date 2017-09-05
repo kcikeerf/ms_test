@@ -1,6 +1,7 @@
 import React from 'react';
-import DetailsItemScore from './DetailsItemScore';
+import PropTypes from 'prop-types';
 
+import DetailsItemScore from './DetailsItemScore';
 
 class DetailsItemShow extends React.Component {
     render() {
@@ -30,7 +31,7 @@ class DetailsItemShow extends React.Component {
 }
 
 DetailsItemShow.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsItemShow;

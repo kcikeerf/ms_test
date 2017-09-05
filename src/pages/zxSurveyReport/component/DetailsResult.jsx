@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ChartRadar from './ChartRadar';
 import DetailsItemShow from './DetailsItemShow';
@@ -139,7 +140,7 @@ class DetailsResult extends React.Component {
 }
 
 DetailsResult.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsResult;

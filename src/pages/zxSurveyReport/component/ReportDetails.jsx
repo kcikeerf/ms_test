@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // ES6
 
 import DetailsBasic from './DetailsBasic';
 import DetailsCredibility from './DetailsCredibility';
@@ -73,7 +74,7 @@ class ReportDetails extends React.Component {
 }
 
 ReportDetails.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default ReportDetails;

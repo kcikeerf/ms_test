@@ -1,7 +1,7 @@
 import React from 'react';
 
-import constants from '../constants';
-import ReactEchartsRadar from '../../../../echarts/Radar';
+import constants from 'zx-chart/constants';
+import ReactEchartsRadar from 'zx-chart/Radar';
 
 class ChartRadar extends React.Component {
     getOption(keys, legend, student) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class DetailsIntroduction extends React.Component {
     render() {
@@ -53,7 +54,7 @@ class DetailsIntroduction extends React.Component {
 }
 
 DetailsIntroduction.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsIntroduction;

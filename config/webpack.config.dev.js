@@ -54,16 +54,6 @@ module.exports = {
         ],
         // ZX Report Academic
         zxSurveyQuestion: [
-            // Include an alternative client for WebpackDevServer. A client's job is to
-            // connect to WebpackDevServer by a socket and get notified about changes.
-            // When you save a file, the client will either apply hot updates (in case
-            // of CSS changes), or refresh the page (in case of JS changes). When you
-            // make a syntax error, this client will display a syntax error overlay.
-            // Note: instead of the default WebpackDevServer client, we use a custom one
-            // to bring better experience for Create React App users. You can replace
-            // the line below with these two lines if you prefer the stock client:
-            // require.resolve('webpack-dev-server/client') + '?/',
-            // require.resolve('webpack/hot/dev-server'),
             require.resolve('react-dev-utils/webpackHotDevClient'),
             // We ship a few polyfills by default:
             require.resolve('./polyfills'),
@@ -72,16 +62,6 @@ module.exports = {
             paths.zxSurveyQuestion.indexJs
         ],
         zxSurveyReport: [
-            // Include an alternative client for WebpackDevServer. A client's job is to
-            // connect to WebpackDevServer by a socket and get notified about changes.
-            // When you save a file, the client will either apply hot updates (in case
-            // of CSS changes), or refresh the page (in case of JS changes). When you
-            // make a syntax error, this client will display a syntax error overlay.
-            // Note: instead of the default WebpackDevServer client, we use a custom one
-            // to bring better experience for Create React App users. You can replace
-            // the line below with these two lines if you prefer the stock client:
-            // require.resolve('webpack-dev-server/client') + '?/',
-            // require.resolve('webpack/hot/dev-server'),
             require.resolve('react-dev-utils/webpackHotDevClient'),
             // We ship a few polyfills by default:
             require.resolve('./polyfills'),
@@ -262,6 +242,33 @@ module.exports = {
             },
             // ** STOP ** Are you adding a new loader?
             // Remember to add the new extension(s) to the "file" loader exclusion list.
+
+            {
+                test: /\.scss$/,
+                use: [
+                    require.resolve('style-loader'),
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: require.resolve('sass-loader'),
+                        options: {
+                            sourceMap: true,
+                            includePaths: paths
+                        }
+                    }
+                ]
+            },
         ],
     },
     plugins: [

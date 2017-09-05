@@ -84,7 +84,7 @@ class DetailItem extends React.Component {
 }
 
 DetailItem.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailItem;

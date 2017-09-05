@@ -63,7 +63,8 @@ let development = {
     TEST_WECHAT_UNIONID: 'orSLk0taXe9otRBoVlvA-SlCWF1k',
 
     //php服务器环境
-    API_LOGIN_STATE:'test',
+    API_LOGIN_STATE:'prod',
+    // API_LOGIN_STATE:'test',
 };
 
 let production = {

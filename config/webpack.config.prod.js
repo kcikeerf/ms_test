@@ -48,10 +48,10 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     ? // Making sure that the publicPath goes back to to build folder.
     {publicPath: Array(cssFilename.split('/').length).join('../')}
     : {};
-
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
+
 module.exports = {
     // Don't attempt to continue if there are any errors.
     bail: true,
@@ -106,7 +106,6 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/290
         extensions: ['.js', '.json', '.jsx'],
         alias: {
-
             // Support React Native Web
             // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
             'react-native': 'react-native-web',
@@ -274,7 +273,7 @@ module.exports = {
 
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor-question'],
-            filename: 'static/js/vendor-report.[chunkhash].js',
+            filename: 'static/js/vendor-question.[chunkhash].js',
             chunks: [
                 'zxSurveyQuestion'
             ],
@@ -341,8 +340,8 @@ module.exports = {
         // ZX Report View App
         new HtmlWebpackPlugin({
             inject: true,
-            template: paths.zxReportAcademic.htmlTemplate,
-            filename: paths.zxReportAcademic.htmlOutput,
+            template: paths.zxSurveyQuestion.htmlTemplate,
+            filename: paths.zxSurveyQuestion.htmlOutput,
             chunks: ['manifest', 'common', 'vendor-question', 'zxSurveyQuestion'],
             minify: {
                 removeComments: true,
@@ -364,8 +363,8 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             inject: true,
-            template: paths.zxReportAcademic.htmlTemplate,
-            filename: paths.zxReportAcademic.htmlOutput,
+            template: paths.zxSurveyReport.htmlTemplate,
+            filename: paths.zxSurveyReport.htmlOutput,
             chunks: ['manifest', 'common', 'vendor-report', 'zxSurveyReport'],
             minify: {
                 removeComments: true,

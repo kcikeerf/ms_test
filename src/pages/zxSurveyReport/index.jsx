@@ -1,31 +1,13 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 
 import ReportDetailsContainer from './component/ReportDetailsContainer';
 
-import 'zx-style/style-mq-report.scss';
+import 'zx-style/style-mq-report.css';
 
-class MQReportPage extends React.Component{
-    
-    render() {
-        let style = {
-            height: '100%'
-        };
-        return (
-            <div style={style}>
-                <ReportDetailsContainer />
-            </div>
-        )
-    }
-}
-
-MQReportPage.contextTypes = {
-    router: React.PropTypes.object.isRequired
-};
-
-render((
+ReactDOM.render((
     <Router history={hashHistory}>
-        <Route path="/" component={MQReportPage}></Route>
+        <Route path="/" component={ReportDetailsContainer}></Route>
     </Router>
-), document.getElementById('app'));
+), document.getElementById('root'));

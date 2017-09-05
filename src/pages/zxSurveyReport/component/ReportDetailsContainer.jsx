@@ -12,7 +12,7 @@ class ReportDetailsContainer extends React.Component {
         super();
         let data;
         if (process.env.DEV) {
-            data = require('../MqReport.json');
+            // data = require('../../devdata/MqReport.json');
             this.state = {
                 output_data:{
                     basic: {

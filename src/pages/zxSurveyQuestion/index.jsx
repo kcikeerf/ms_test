@@ -1,5 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 import PropTypes from 'prop-types'; // ES6
 
@@ -7,7 +7,7 @@ import SurveyAPP from './component/SurveyApp';
 import Success from './component/Success';
 import Error from './component/Error';
 
-import 'zx-lib/style-mq-report.scss';
+import 'zx-style/style-mq-report.css';
 
 class MqSurey extends React.Component{
     constructor() {
@@ -31,15 +31,16 @@ class MqSurey extends React.Component{
                     <SurveyAPP />
                 </div>
             </div>
-        )
+        );
     }
 }
 MqSurey.contextTypes = {
     router: PropTypes.object.isRequired
 };
-render((
+
+ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/" component = {MqSurey}></Route>
         <Route path="/success" component = {Success}></Route>
         <Route path="/error" component = {Error}></Route>
-    </Router>), document.getElementById('app'));
+    </Router>), document.getElementById('root'));

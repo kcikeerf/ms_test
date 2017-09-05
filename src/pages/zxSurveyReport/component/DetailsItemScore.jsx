@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 // import DetailItem from './DetailItem';
 
 class DetailsItemScore extends React.Component {
@@ -30,7 +30,7 @@ class DetailsItemScore extends React.Component {
 }
 
 DetailsItemScore.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsItemScore;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class DetailsAdvice extends React.Component {
     render() {
@@ -22,7 +23,7 @@ class DetailsAdvice extends React.Component {
 }
 
 DetailsAdvice.contextTypes = {
-    router: React.PropTypes.object.isRequired
+    router: PropTypes.object.isRequired
 };
 
 export default DetailsAdvice;
