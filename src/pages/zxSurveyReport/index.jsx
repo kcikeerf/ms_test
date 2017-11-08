@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory} from 'react-router';
 
-import ReportDetailsContainer from './component/ReportDetailsContainer';
+import ReportDetailsContainer from './page/ReportDetailsContainer';
 
 import 'zx-style/style-mq-report.css';
+
 
 ReactDOM.render((
     <Router history={hashHistory}>

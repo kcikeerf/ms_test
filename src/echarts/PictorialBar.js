@@ -1,19 +1,11 @@
 // 引入 ECharts 主模块
 let _echarts = require('echarts/lib/echarts');
 // 引入柱状图
-require('echarts/lib/chart/scatter');
-require('echarts/lib/chart/effectScatter');
+require('echarts/lib/chart/pictorialBar');
 // 引入标题
 require('echarts/lib/component/title.js');
-// 引入标题
-require('echarts/lib/component/tooltip.js');
 //引入markpoint
-require('echarts/lib/component/markArea.js');
-require('echarts/lib/component/markLine');
-//引入angleAxis模块（圆形散点图使用）
-require('echarts/lib/component/angleAxis.js');
-//引入radiusAxis模块（圆形散点图使用）
-require('echarts/lib/component/radiusAxis');
+require('echarts/lib/component/markPoint.js');
 
 //let _echarts = require('echarts');
 
@@ -29,7 +21,7 @@ let _elementResizeEvent2 = _interopRequireDefault(_elementResizeEvent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-let ReactEchartsScatter = _react2['default'].createClass({
+let ReactEchartsPictorialBar = _react2['default'].createClass({
     displayName: 'ReactEcharts',
 
     propTypes: {
@@ -102,4 +94,4 @@ let ReactEchartsScatter = _react2['default'].createClass({
             style: style });
     }
 });
-module.exports = ReactEchartsScatter;
+module.exports = ReactEchartsPictorialBar;

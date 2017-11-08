@@ -66,7 +66,8 @@ module.exports = {
         zxImages: resolveApp('src/images'),
         zxChart: resolveApp('src/echarts'),
         zxStyle: resolveApp('src/style'),
-        zxLib: resolveApp('src/lib')
+        zxLib: resolveApp('src/lib'),
+        zxMisc: resolveApp('src/misc')
     },
     zxView: {
         entry: 'zx-view',

@@ -1,35 +1,21 @@
 // 引入 ECharts 主模块
 let _echarts = require('echarts/lib/echarts');
-// 引入柱状图
-require('echarts/lib/chart/scatter');
-require('echarts/lib/chart/effectScatter');
-// 引入标题
-require('echarts/lib/component/title.js');
-// 引入标题
-require('echarts/lib/component/tooltip.js');
-//引入markpoint
-require('echarts/lib/component/markArea.js');
-require('echarts/lib/component/markLine');
-//引入angleAxis模块（圆形散点图使用）
-require('echarts/lib/component/angleAxis.js');
-//引入radiusAxis模块（圆形散点图使用）
-require('echarts/lib/component/radiusAxis');
+//引入要用的水滴图
+require('echarts-liquidfill/src/liquidFill');
 
-//let _echarts = require('echarts');
+var _echarts2 = _interopRequireDefault(_echarts);
 
-let _echarts2 = _interopRequireDefault(_echarts);
+var _react = require('react');
 
-let _react = require('react');
+var _react2 = _interopRequireDefault(_react);
 
-let _react2 = _interopRequireDefault(_react);
+var _elementResizeEvent = require('element-resize-event');
 
-let _elementResizeEvent = require('element-resize-event');
-
-let _elementResizeEvent2 = _interopRequireDefault(_elementResizeEvent);
+var _elementResizeEvent2 = _interopRequireDefault(_elementResizeEvent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-let ReactEchartsScatter = _react2['default'].createClass({
+var ReactEchartsLiquidfill = _react2['default'].createClass({
     displayName: 'ReactEcharts',
 
     propTypes: {
@@ -43,10 +29,10 @@ let ReactEchartsScatter = _react2['default'].createClass({
     },
     // first add
     componentDidMount: function componentDidMount() {
-        let echartObj = this.renderEchartDom();
-        let onEvents = this.props.onEvents || [];
+        var echartObj = this.renderEchartDom();
+        var onEvents = this.props.onEvents || [];
 
-        let _loop = function _loop(eventName) {
+        var _loop = function _loop(eventName) {
             // ignore the event config which not satisfy
             if (typeof eventName === 'string' && typeof onEvents[eventName] === 'function') {
                 // binding event
@@ -56,7 +42,7 @@ let ReactEchartsScatter = _react2['default'].createClass({
             }
         };
 
-        for (let eventName in onEvents) {
+        for (var eventName in onEvents) {
             _loop(eventName);
         }
         // on chart ready
@@ -81,7 +67,7 @@ let ReactEchartsScatter = _react2['default'].createClass({
     // render the dom
     renderEchartDom: function renderEchartDom() {
         // init the echart object
-        let echartObj = this.getEchartsInstance();
+        var echartObj = this.getEchartsInstance();
         // set the echart option
         echartObj.setOption(this.props.option);
 
@@ -95,11 +81,11 @@ let ReactEchartsScatter = _react2['default'].createClass({
         return _echarts2['default'].getInstanceByDom(this.refs.echartsDom) || _echarts2['default'].init(this.refs.echartsDom, this.props.theme);
     },
     render: function render() {
-        let style = this.props.style || { height: '300px' };
+        var style = this.props.style || { height: '300px' };
         // for render
         return _react2['default'].createElement('div', { ref: 'echartsDom',
             className: this.props.className,
             style: style });
     }
 });
-module.exports = ReactEchartsScatter;
+module.exports = ReactEchartsLiquidfill;

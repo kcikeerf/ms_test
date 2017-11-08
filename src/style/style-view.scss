@@ -1,0 +1,596 @@
+nav {
+  background-color: #4db6ac;
+  .brand-logo {
+    //letter-spacing: 0.5rem;
+    .svg-style{
+      width: 140px;
+      height: 64px;
+    }
+  }
+  .zx-margin-left{
+    margin-left: 153px;
+  }
+}
+
+.zx-body-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header
+.zx-header {
+  //padding-left: 300px;
+}
+
+// Main container
+.zx-main {
+  margin-left: 300px;
+  flex-grow: 1;
+  display: flex;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.navbar-fixed {
+  z-index: 1000;
+}
+
+// Log
+.side-nav {
+  color: #fff;
+  top: 64px;
+  font-size: 12px;
+  background-color: #607d8b;
+  height: calc(100% - 64px);
+  padding-bottom: 10px;
+  .mCSB_inside {
+    > .mCSB_container {
+      margin-right: 0;
+      min-height: 500px;
+    }
+  }
+  ul.zx-collapsible-parent {
+    .zx-li-open {
+      background-color: #4db6ac !important;
+    }
+    > li {
+      margin-bottom: 10px;
+    }
+    li {
+      line-height: 32px;
+      color: #fafafa;
+    }
+    i.zx-list-expand {
+      font-size: 28px;
+      margin-right: 5px;
+    }
+    .zx-icon-right {
+      margin-right: 0;
+      float: right;
+    }
+    .zx-icon-text {
+      line-height: 1.8em;
+      i {
+        font-size: 18px;
+        margin-right: 5px;
+      }
+    }
+    .collapsible-header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      &:hover {
+        background-color: #4db6ac !important;
+        color: #fff !important;
+      }
+    }
+    ul {
+      .collapsible-header {
+        min-height: 32px;
+        padding-left: 40px !important;
+      }
+      ul {
+        .collapsible-header {
+          padding-left: 65px !important;
+        }
+        ul {
+          .collapsible-header {
+            padding-left: 90px !important;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.zx-logo-container {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 64px;
+  .brand-logo {
+    text-align: center;
+    height: 64px;
+    .zx-logo {
+      height: 54px;
+    }
+  }
+}
+
+.zx-menu-collapse-btn {
+  display: inline-block !important;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.zx-vertical-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.side-nav li.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.side-nav .collapsible-body > ul:not(.collapsible) > li.active, .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.zx-collapsible-child {
+  background-color: #546e7a;
+  > li.active {
+    background: none;
+    > .collapsible-header {
+      //border-left: 4px solid #4db6ac;
+    }
+  }
+}
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body {
+  border: 0;
+  background-color: inherit;
+}
+
+.zx-dashboard-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.zx-dashboard-content {
+  padding: 10px;
+}
+
+//binding user
+.zx-binding-login {
+  display: flex;
+  justify-content: center;
+  .zx-login-container {
+    max-width: 450px;
+    min-width: 400px;
+    padding: 10px 30px;
+    flex-grow: 1;
+    h4{
+      text-align: center;
+    }
+    .zx-close-adduser{
+      float: right;
+      color:#4db6ac;
+    }
+    .zx-login-header {
+      letter-spacing: 5px;
+    }
+    .zx-login-btn {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+    .zx-form-message {
+      margin-top: 5px;
+      padding: 10px 15px;
+      text-align: center;
+      background-color: #e57373;
+      color: #fff;
+      border-radius: 3px;
+    }
+    .zx-form-group {
+      padding: 15px 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+// text overflow
+.zx-text-overflow {
+  text-overflow: ellipsis;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Padding
+ul.zx-padding-left {
+  > li {
+    > .collapsible-header {
+      padding-left: 40px !important;
+    }
+
+  }
+
+}
+
+ul.zx-padding-30 {
+  padding-left: 30px;
+}
+
+ul.zx-padding-45 {
+  padding-left: 45px;
+}
+
+.zx-report-link {
+  color: #ffcc80;
+}
+
+.zx-report-iframe-container {
+  display: none;
+  flex-grow: 1;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 500;
+  background-color: rgba(189,189,189,0.8);
+  &.show {
+    display: block;
+  }
+  .zx-icon-clear {
+    color: #607d8b;
+    position: absolute;
+    padding: 0;
+    right: 10px;
+    top: 5px;
+    background: none;
+    box-shadow: none;
+    height: 56px;
+    line-height: 56px;
+    z-index: 1;
+    i {
+      font-size: 36px;
+    }
+  }
+  .zx-iframe-container {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    margin: auto;
+    .zx-iframe {
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px;
+      position: relative;
+      height: 0;
+      overflow: hidden;
+      &.zx-iframe-16x9 {
+        //padding-bottom: 56.25%;
+      },
+    iframe {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+    }
+  }
+}
+
+.zx-list-subtitle {
+  color: #e0e0e0;
+  padding: 20px 25px 5px;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+}
+
+.zx-flex-grow-1 {
+  flex-grow: 1;
+}
+
+.zx-dashboard-header-container {
+  margin-bottom: 1rem;
+  .zx-dashboard-header {
+    display: flex;
+    align-items: center;
+    i {
+      color: #4db6ac;
+      font-size: 36px;
+    }
+  }
+}
+
+.zx-summary-numb-box {
+  //background-color: #e57373;
+  color: #ffffff;
+  padding: 10px 15px;
+  text-align: center;
+  .zx-summary-numb-box-content-total{
+    font-size: 26px;
+  }
+  .zx-summary-numb-box-total{
+    margin: 10px auto;
+  }
+  .zx-summary-numb-box-header {
+    color: #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .zx-summary-numb-box-icon {
+      font-size: 32px;
+    }
+    .zx-summary-numb-box-subject {
+      font-size: 24px;
+    }
+  }
+
+  .zx-summary-numb-box-body {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    .zx-summary-numb-box-content-increase {
+      font-size: 42px;
+    }
+    .zx-summary-numb-box-subcontent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .divider {
+      margin: 10px 0;
+    }
+  }
+
+  .zx-summary-numb-box-footer {
+    text-align: right;
+  }
+}
+
+.zx-recent-report-container {
+  margin-bottom: 10px;
+}
+
+.zx-summary-numb-box-color {
+  color: #212121;
+}
+
+.card-header-position{
+  position: relative;
+}
+
+.zx-subject-stats-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .zx-subject-stats-item {
+    margin: 0 10px;
+    flex-grow: 1;
+    flex-basis: 30%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .zx-subject-stats-container {
+    .zx-subject-stats-item {
+      margin: 0 10px;
+      flex-grow: 1;
+      flex-basis: 100%;
+    }
+  }
+}
+
+.zx-user-select-container {
+  padding: 10px 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    margin-right: 20px;
+  }
+  .caret {
+    color: #fff !important;
+  }
+  label {
+    font-size: 1rem;
+    color: #e0e0e0;
+  }
+  .input-field {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+  .select-dropdown {
+    margin-bottom: 0 !important;
+  }
+}
+
+// Preloader
+.zx-preloader-report-list-container {
+  text-align: center;
+  margin-top: 20px;
+  .zx-preloader {
+    .spinner-layer {
+      border-color: #b2dfdb;
+    }
+    &.show {
+      display: inline-block;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+  .zx-preloader-text {
+    color: #b2dfdb;
+    margin-top: 10px;
+  }
+}
+
+// Login
+.zx-main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #eee;
+  .zx-login-container {
+    max-width: 480px;
+    min-width: 400px;
+    height: 600px;
+    padding: 40px 80px;
+    flex-grow: 1;
+    background-color: #fff;
+    .brand-logo{
+      text-align: center;
+      .svg-style{
+        width: 100px;
+        height: 70px;
+      }
+    }
+    .zx-login-header {
+      margin-top: 0;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .zx-login-btn {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+    .zx-form-message {
+      margin-top: 5px;
+      padding: 10px 15px;
+      text-align: center;
+      background-color: #e57373;
+      color: #fff;
+      border-radius: 3px;
+    }
+    .zx-form-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+// media
+
+// small screen expand main content
+@media only screen and (max-width: 1230px) {
+  .side-nav.fixed {
+    transform: translateX(-105%);
+  }
+  .zx-main {
+    margin-left: 0;
+  }
+}
+
+// User List Dropdown
+.dropdown-content {
+  li {
+    clear: both;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+    min-height: 36px;
+    line-height: 36px;
+    width: 100%;
+    text-align: left;
+    text-transform: none;
+    > span {
+      padding: 10px 16px;
+    }
+  }
+}
+
+// Settings page
+.zx-settings-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .zx-settings-icon {
+    margin-right: 10px;
+    font-size: 38px;
+    color: #4db6ac;
+  }
+  .zx-settings-name {
+    flex-grow: 1;
+  }
+  .zx-settings-role {
+    font-size: 18px;
+    color: #fff;
+    background-color: #4db6ac;
+    border-radius: 3px;
+    padding: 5px;
+  }
+}
+
+// Authority list
+.zx-user-autority-list-container {
+  .zx-user-autority-list {
+    .zx-user-autority-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      i {
+        color: #4db6ac;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+//bindUserList
+.zx-block-user{
+  .zx-bind-user-list{
+    border-bottom: 1px solid #4db6ac;
+    .zx-check-all-center {
+      display: inline;
+      color: #000000;
+    }
+  }
+  .zx-bind-user-btn{
+     .btn{
+       //float: right;
+       margin-top: 25px;
+       margin-right: 25px;
+       .zx-bind-label{
+         float: right;
+         padding: 4px;
+         line-height: 30px;
+       }
+     }
+   }
+}
+.zx-login-wx-bind{
+  text-align: center;
+}
+
+.zx-lessen-margin {
+  margin: 0 10px !important;
+}
+
+.zx-page-preloader {
+  display: none;
+  &.active {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #eee;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

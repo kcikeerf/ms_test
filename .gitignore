@@ -1,5 +1,6 @@
 node_modules/
 build/
+/public/reports
 wx-config/config.php
 coverage/
 .eslintcache
