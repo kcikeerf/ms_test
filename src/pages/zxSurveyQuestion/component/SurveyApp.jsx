@@ -5,8 +5,7 @@ import * as Survey from 'survey-react';
 
 import surveyQuestion from './SurveyQuestionTest';
 
-import getCookie from 'zx-lib/getCookie';
-import createCookie from 'zx-lib/createCookie';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class SurveyAPP extends React.Component{
@@ -191,7 +190,7 @@ class SurveyAPP extends React.Component{
         model.locale = 'my';
 
         //获取用户session
-        var sessionid=getCookie('wx_openid')?getCookie('wx_openid'):'testid_123456';
+        var sessionid=getCookie(config.COOKIE.WX_OPENID)?getCookie(config.COOKIE.WX_OPENID):'testid_123456';
 
         //更改标签发生的事件
         var obj={}
@@ -259,9 +258,10 @@ class SurveyAPP extends React.Component{
                 }
                 results.push(obj);
             }
-            let access_token = getCookie('access_token');
-            let testId = getCookie('question_testid');
-            let openid = getCookie('wx_openid');
+            let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
+            console.log(access_token);
+            let testId = getCookie(config.COOKIE.QUEST_TESTID);
+            let openid = getCookie(config.COOKIE.WX_OPENID);
             let submitData={
                 access_token:access_token,
                 test_id:testId,
@@ -296,7 +296,7 @@ class SurveyAPP extends React.Component{
                 },
                 success: function(result) {
                     createCookie('task_uid',result.task_uid);
-                    let sessionid=getCookie('wx_openid');
+                    let sessionid=getCookie(config.COOKIE.WX_OPENID);
                     localStorage.removeItem(sessionid);  //清除本地存储
                     that.context.router.push('/success');
                     console.log(result);

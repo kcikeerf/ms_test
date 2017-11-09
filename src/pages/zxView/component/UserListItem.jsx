@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import createCookie from 'zx-lib/createCookie';
+
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
+let config = require('zx-const')[process.env.NODE_ENV];
 
 class UserListItem extends React.Component {
     constructor() {
@@ -10,7 +13,7 @@ class UserListItem extends React.Component {
     headeUser() {
         let userAccessToken = this.props.userAccessToken;
         let opendId = this.props.wechatOpenId;
-        createCookie('select_access_token', userAccessToken);
+        createCookie(config.COOKIE.SELECTED_ACCESS_TOKEN, userAccessToken);
         this.context.router.push('/todo-list');
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import createCookie from 'zx-lib/createCookie';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 
 let config = require('zx-const')[process.env.NODE_ENV];
 
@@ -18,7 +18,7 @@ class ReportItem extends React.Component{
                 url = configUrl[i].QUESTION_URL;
             }
         }
-        createCookie('question_testid',testid);
+        createCookie(config.COOKIE.QUEST_TESTID,testid);
         window.location.href = url;
     }
 

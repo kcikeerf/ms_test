@@ -21,8 +21,25 @@ class ProgressReport extends React.Component {
         };
         let api_url = config.API_DOMAIN + config.API_JOB_STATUS;
 
-        let t = setInterval(function () {
+        $.post(api_url, data, function (response) {
+            this.setState({
+                progress: response.jobs[0].progress
+            });
+            if(response.jobs[0].progress !== 1){
+                this.setIntervalApi(api_url,data);
+            }
+        }.bind(this)).fail(function (errorResponse) {
+            if (errorResponse) {
+                this.setIntervalApi(api_url,data);
+            }
+        }.bind(this))
 
+
+
+    }
+
+    setIntervalApi(api_url,data){
+        let t = setInterval(function () {
             $.post(api_url, data, function (response) {
                 console.log(response);
                 this.setState({
@@ -37,7 +54,7 @@ class ProgressReport extends React.Component {
                 }
             }.bind(this))
 
-        }.bind(this), 200);
+        }.bind(this), 4000);
     }
 
     render() {

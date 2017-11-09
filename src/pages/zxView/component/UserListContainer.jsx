@@ -23,7 +23,7 @@ class UserListContainer extends React.Component {
                 <div className="zy-container-top">
                     <div className="zy-nav-top">
                         <span className="zy-nav-logo">{config.LOGO}</span>
-                        <span className="zy-nav-title">综合素质评价</span>
+                        <span className="zy-nav-title">在线测试</span>
                         <span className="zy-settings-btn" aria-hidden="true"
                               onClick={this.handleNav.bind(this)}>设置</span>
                     </div>

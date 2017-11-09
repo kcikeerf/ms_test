@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import $ from 'jquery';
 
-import getCookie from 'zx-lib/getCookie';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class AddUser extends React.Component {

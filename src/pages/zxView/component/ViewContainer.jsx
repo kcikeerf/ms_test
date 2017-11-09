@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router';
 import PropTypes from 'prop-types';
-
+import $ from 'jquery';
 import UserListContainer from './UserListContainer';
 
-import $ from 'jquery';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
 import 'zx-style/style-school-view.css';
-import getCookie from 'zx-lib/getCookie';
-import createCookie from 'zx-lib/createCookie';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class ViewContainer extends React.Component {
@@ -36,7 +34,6 @@ class ViewContainer extends React.Component {
             env: config.API_LOGIN_STATE,
         };
         let wxOpenId, wxUnionId, wxUserInfo;
-        console.log(process.env.NODE_ENV);
         if (process.env.NODE_ENV === 'development') {
             wxOpenId = config.TEST_WECHAT_OPENID;
             wxUnionId = config.TEST_WECHAT_UNIONID;
@@ -46,10 +43,12 @@ class ViewContainer extends React.Component {
                 wxOpenId: wxOpenId,
                 wxUnionId: wxUnionId,
             };
+            createCookie(config.COOKIE.WX_OPENID, wxOpenId);
+            createCookie(config.COOKIE.WX_UNIONID, wxUnionId);
         }
         else {
-            wxOpenId = getCookie('wx_openid');
-            wxUnionId = getCookie('wx_unionid');
+            wxOpenId = getCookie(config.COOKIE.WX_OPENID);
+            wxUnionId = getCookie(config.COOKIE.WX_UNIONID);
             wxUserInfo = JSON.stringify({
                 nickname: decodeURIComponent(getCookie('wx_nickname')),
                 headimgurl: decodeURIComponent(getCookie('wx_headimgurl')),
@@ -70,7 +69,7 @@ class ViewContainer extends React.Component {
             let zxAccessSlave = parsedResponse.slave;
             let zxMainAccessToken = zxAccessMatser.oauth.access_token;
             let hasBindedUser = (zxAccessSlave && zxAccessSlave.length !== 0);
-            createCookie('zx_main_access_token', zxMainAccessToken);
+            createCookie(config.COOKIE.MAIN_ACCESS_TOKEN, zxMainAccessToken);
             this.setState({
                 zxMainAccessToken: zxMainAccessToken,
                 zxAccessMatser:zxAccessMatser,
@@ -85,6 +84,7 @@ class ViewContainer extends React.Component {
 
         // 获取zx access失败
         zxAccessPromise.fail(function (errorResponse) {
+            console.log('获取access失败');
         }.bind(this));
 
     }

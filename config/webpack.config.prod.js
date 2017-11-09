@@ -111,9 +111,11 @@ module.exports = {
             'react-native': 'react-native-web',
             'zx-const': paths.aliasPath.zxConst,
             'zx-images': paths.aliasPath.zxImages,
+            'zx-img': paths.aliasPath.zxImages,
             'zx-chart': paths.aliasPath.zxChart,
             'zx-style': paths.aliasPath.zxStyle,
-            'zx-lib': paths.aliasPath.zxLib
+            'zx-lib': paths.aliasPath.zxLib,
+            'zx-misc': paths.aliasPath.zxMisc
         },
         plugins: [
             // Prevents users from importing files from outside of src/ (or node_modules/).

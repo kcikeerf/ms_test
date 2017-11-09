@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import $ from 'jquery';
 
-import Preloader from './Preloader';
 import TodoSurveyReportList from './TodoSurveyReportList';
 import TestedSurveyReportList from './TestedSurveyReportList';
+import Preloader from './Preloader';
 
-import getCookie from 'zx-lib/getCookie';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class ReportListContainer extends React.Component {
@@ -20,8 +21,7 @@ class ReportListContainer extends React.Component {
     }
 
     componentDidMount(){
-        let access_token = getCookie('select_access_token');
-        console.log(access_token);
+        let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
 
         let todolistUrl = config.API_DOMAIN+ config.API_GET_TODO_LIST;
 

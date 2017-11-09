@@ -54,7 +54,7 @@ class ReportDetailsContainer extends React.Component {
     componentDidMount() {
         // let api_url = getCookie('report_url');
         // let access_token = getCookie('access_token');
-        // let wx_openid = getCookie('wx_openid');
+        // let wx_openid = getCookie(config.COOKIE.WX_OPENID);
 
         let reportType = 'pupil';
         let reportLabel = '学生';
@@ -1275,6 +1275,10 @@ class ReportDetailsContainer extends React.Component {
         return modified_data;
     }
 
+    handleNavBack(event) {
+        this.context.router.goBack();
+    }
+
     render() {
         let accessToken = this.state.accessToken;
         let testId = this.state.testId;
@@ -1302,19 +1306,28 @@ class ReportDetailsContainer extends React.Component {
         }
 
         return (
-            <div className="zx-report-holder">
-                {
-                    this.state.loaded ||
-                    <Preloader />
-                }
-                {
-                    this.state.loaded &&
-                    <ReportDetails accessToken={accessToken} testId={testId} reportData={reportData}/>
-                }
-                {
-                    this.state.loaded &&
-                    contentScrollSpy
-                }
+            <div className="zy-report-container">
+                <div className="zy-container-top">
+                    <div className="zy-nav-top">
+                        <span className="glyphicon glyphicon-chevron-left zy-nav-navBack" onClick={this.handleNavBack.bind(this)}></span>
+                        <span className="zy-nav-title">在线测试考情快报</span>
+                    </div>
+                </div>
+
+                <div className="zy-container-body zx-report-holder">
+                    {
+                        this.state.loaded ||
+                        <Preloader />
+                    }
+                    {
+                        this.state.loaded &&
+                        <ReportDetails accessToken={accessToken} testId={testId} reportData={reportData}/>
+                    }
+                    {
+                        this.state.loaded &&
+                        contentScrollSpy
+                    }
+                </div>
             </div>
         )
     }

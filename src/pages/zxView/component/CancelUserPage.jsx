@@ -4,7 +4,8 @@ import $ from 'jquery';
 
 import CancelUser from './CancelUser'
 
-import getCookie from 'zx-lib/getCookie';
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class CancelUserPage extends React.Component {

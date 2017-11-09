@@ -9,7 +9,8 @@ class Error extends React.Component {
     }
 
     handleBackList() {
-        this.context.router.push('/');
+        // this.context.router.push('/');
+        window.location.href = config.URL_HOME;
     }
 
     handleBackHome() {

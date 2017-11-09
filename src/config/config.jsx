@@ -32,26 +32,14 @@ let general = {
 
     API_VERSIONS: '/api/v1.2',
 
-    SURVEY_ID_URL: [
-        {
-            ID: '599d49224dd5e01a214abe26',                             //Report ID
-            QUESTION_URL: '/build/html/report-mq/report-question',      // Report QUESTION URL
-            VIEW_URL: '/build/html/report-mq/report-view'               // Report VIEW URL
-        },
-        {
-            ID: '5979563a4dd5e07996c67513',
-            QUESTION_URL: '/build/html/report-mq/report-question',
-            VIEW_URL: '/build/html/report-mq/report-view'
-        }
-    ],
-
     COOKIE: {
         LOGIN_METHOD: 'login_method',
-        MAIN_ACCESS_TOKEN: 'main_access_token',
-        CLIENT_ACCESS_TOKEN: 'client_access_token',
         WX_OPENID: 'wx_openid',
         WX_UNIONID: 'wx_unionid',
-        SELECTED_ACCESS_TOKEN:'selected_access_token'
+        QUEST_TESTID:'question_testid',
+        MAIN_ACCESS_TOKEN: 'zx_main_access_token',
+        SELECTED_ACCESS_TOKEN:'selected_access_token',
+        CLIENT_ACCESS_TOKEN: 'client_access_token'
     },
 
     //测试列表的地址
@@ -81,7 +69,7 @@ let development = {
     ...general,
 
     // 服务器地址
-    API_DOMAIN: 'http://59.110.7.209:4500',
+    API_DOMAIN: 'http://101.201.208.88:4321',
 
     //开发环境所需cookie
     TEST_USER_NAME: 'fa89114219116sy',
@@ -89,18 +77,50 @@ let development = {
     TEST_WECHAT_UNIONID: 'orSLk0taXe9otRBoVlvA-SlCWF1k',
 
     //php服务器环境
-    // API_LOGIN_STATE:'prod',
-    API_LOGIN_STATE:'test',
+    API_LOGIN_STATE:'wlxx',
+
+    SURVEY_ID_URL: [
+        {
+            ID: '5a029fcfea336f01c378595a',                             //Report ID
+            QUESTION_URL: '/html/zx-survey-question',      // Report QUESTION URL
+            VIEW_URL: 'html/zx-survey-report'               // Report VIEW URL
+        },
+        {
+            ID: '5979563a4dd5e07996c67513',
+            QUESTION_URL: '/build/html/report-mq/report-question',
+            VIEW_URL: '/html/report-mq/report-view'
+        }
+    ],
+    URL_HOME:'/html',
+    URL_LIST_VIEW: "/html#/todo-list",
+    URL_QUESTION:'/html/zx-survey-question#/'
+
 };
 
 let production = {
     ...general,
 
     // 服务器地址
-    API_DOMAIN: 'http://59.110.7.209:4502',
+    API_DOMAIN: 'http://101.201.208.88:4321',
 
     //php服务器环境
     API_LOGIN_STATE:'prod',
+
+    SURVEY_ID_URL: [
+        {
+            ID: '5a029fcfea336f01c378595a',                             //Report ID
+            QUESTION_URL: '/build/html/zx-survey-question',      // Report QUESTION URL
+            VIEW_URL: '/build/html/zx-survey-report'               // Report VIEW URL
+        },
+        {
+            ID: '5979563a4dd5e07996c67513',
+            QUESTION_URL: '/build/html/report-mq/report-question',
+            VIEW_URL: '/build/html/report-mq/report-view'
+        }
+    ],
+    URL_HOME:'/build/html',
+    URL_LIST_VIEW: "/build/html#/todo-list",
+    URL_QUESTION:'/build/html/zx-survey-question#/'
 };
 
 module.exports = {

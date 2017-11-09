@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link, router} from 'react-router';
-
-import getCookie from 'zx-lib/getCookie';
-import createCookie from 'zx-lib/createCookie';
-let config = require('zx-const')[process.env.NODE_ENV];
+import PropTypes from 'prop-types';
 
 import ProgressReport from './ProgressReport';
+
+import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
+
+let config = require('zx-const')[process.env.NODE_ENV];
 
 class ReportItem extends React.Component {
     constructor() {
@@ -22,7 +22,7 @@ class ReportItem extends React.Component {
                 url = configUrl[i].QUESTION_URL;
             }
         }
-        createCookie('question_testid', testid);
+        createCookie(config.COOKIE.QUEST_TESTID, testid);
         window.location.href = url;
     }
 
@@ -41,14 +41,12 @@ class ReportItem extends React.Component {
 
     render() {
         let nameReport = this.props.TodoListobj;
-        console.log(nameReport);
         let task_uid = nameReport.task_uid;
         let cookieTask_uid = getCookie('task_uid');
-        console.log(cookieTask_uid);
-        let access_token = getCookie('access_token');
+        let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
         let content;
         if (cookieTask_uid) {
-            if (cookieTask_uid == task_uid) {
+            if (cookieTask_uid === task_uid) {
                 content = <ProgressReport
                     task_uid={cookieTask_uid}
                     access_token={access_token}

@@ -70,7 +70,7 @@ h4 {
       //box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
     }
     .zx-report-container-box {
-      padding: 0px 18px;
+      padding: 0px 12px;
     }
     .zx-report-container {
       min-height: 100%;
@@ -825,3 +825,58 @@ h4 {
   }
 }
 
+
+.zy-report-container {
+  background-color: #ffffff;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .zy-container-top {
+    height: 48px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  .zy-container-body {
+    padding: 48px 0 0;
+  }
+}
+
+.zy-nav-top {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  background-color: #15a892;
+  text-align: center;
+  .zy-nav-navBack {
+    float: left;
+    font-size: 18px;
+    line-height: 48px;
+    top: 0;
+    width: 50px;
+  }
+  .zy-nav-logo {
+    color: #fff;
+    font-size: 20px;
+    line-height: 48px;
+    float: left;
+    padding-left: 15px;
+  }
+  .zy-nav-title {
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    line-height: 48px;
+  }
+  .zy-settings-btn {
+    float: right;
+    line-height: 48px;
+    font-size: 14px;
+    top: 0;
+    padding-right: 15px;
+  }
+}
