@@ -62,6 +62,9 @@ let general = {
     REPORT_TYPE_PUPIL: 'pupil',
     REPORT_TYPE_PUPIL_ICON: 'person',
 
+    //cnd 静态文件 群里json
+    CDN_WLXX_GROUP_URL:'http://cdn.k12ke.com/wlxx-data/group/',
+
     LOGO: '甄学'
 };
 
@@ -104,7 +107,7 @@ let production = {
     API_DOMAIN: 'http://101.201.208.88:4321',
 
     //php服务器环境
-    API_LOGIN_STATE:'prod',
+    API_LOGIN_STATE:'wlxx',
 
     SURVEY_ID_URL: [
         {

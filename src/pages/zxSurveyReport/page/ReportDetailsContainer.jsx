@@ -62,9 +62,9 @@ class ReportDetailsContainer extends React.Component {
         };
         let reportType = 'pupil';
         let reportLabel = '学生';
-        // let reportDataPromise = $.get('http://localhost:3000/reports/wlxx/test/pupil.json');
         let reportDataPromise = $.post(apiUrl,data);
-        let reportGroupDataPromise = $.get('http://localhost:3000/reports/wlxx/test/group.json');
+
+        let reportGroupDataPromise = $.get(config.CDN_WLXX_GROUP_URL+'group.json');
         $.when(reportDataPromise, reportGroupDataPromise).done(function (responeData, responeGroupData) {
 
             let responseReport =JSON.parse(responeData[0]);
