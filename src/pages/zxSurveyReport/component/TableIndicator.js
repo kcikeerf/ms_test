@@ -24,9 +24,6 @@ export default class TableIndicator extends React.Component {
         this.setState({
             activeId: indicatorID
         });
-
-        let modalID = '#' + this.props.modalId;
-        $(modalID).modal('open');
     }
 
     render() {

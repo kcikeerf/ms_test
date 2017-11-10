@@ -206,7 +206,7 @@ class ChartBarRank extends React.Component {
         let data = this.props.data;
         let option = this.getOption(data);
         let style = {
-            height: '130px',
+            height: '88px',
             width: '100%'
         };
         return (

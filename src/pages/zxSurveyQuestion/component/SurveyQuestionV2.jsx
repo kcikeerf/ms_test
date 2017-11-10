@@ -393,6 +393,142 @@ var SurveyQuestion={
                 }
             ],
             name: 'page11'
+        },
+        {
+            elements: [
+                {
+                    type: 'radiogroup',
+                    choices: [
+                        {
+                            value: '完全不像我-1',
+                            text: '完全不像我'
+                        },
+                        {
+                            value: '有点像我-2',
+                            text: '有点像我'
+                        },
+                        {
+                            value: '一般像我-3',
+                            text: '一般像我'
+                        },
+                        {
+                            value: '比较像我-4',
+                            text: '比较像我'
+                        },
+                        {
+                            value: '非常像我-5',
+                            text: '非常像我'
+                        }
+                    ],
+                    colCount: 0,
+                    isRequired: true,
+                    name: 'question11',
+                    title: '喜欢思考、讨论科技或数学方面的问题7'
+                }
+            ],
+            name: 'page11'
+        },
+        {
+            elements: [
+                {
+                    type: 'radiogroup',
+                    choices: [
+                        {
+                            value: '完全不像我-1',
+                            text: '完全不像我'
+                        },
+                        {
+                            value: '有点像我-2',
+                            text: '有点像我'
+                        },
+                        {
+                            value: '一般像我-3',
+                            text: '一般像我'
+                        },
+                        {
+                            value: '比较像我-4',
+                            text: '比较像我'
+                        },
+                        {
+                            value: '非常像我-5',
+                            text: '非常像我'
+                        }
+                    ],
+                    colCount: 0,
+                    isRequired: true,
+                    name: 'question11',
+                    title: '喜欢思考、讨论科技或数学方面的问题8'
+                }
+            ],
+            name: 'page11'
+        },
+        {
+            elements: [
+                {
+                    type: 'radiogroup',
+                    choices: [
+                        {
+                            value: '完全不像我-1',
+                            text: '完全不像我'
+                        },
+                        {
+                            value: '有点像我-2',
+                            text: '有点像我'
+                        },
+                        {
+                            value: '一般像我-3',
+                            text: '一般像我'
+                        },
+                        {
+                            value: '比较像我-4',
+                            text: '比较像我'
+                        },
+                        {
+                            value: '非常像我-5',
+                            text: '非常像我'
+                        }
+                    ],
+                    colCount: 0,
+                    isRequired: true,
+                    name: 'question11',
+                    title: '喜欢思考、讨论科技或数学方面的问题9'
+                }
+            ],
+            name: 'page11'
+        },
+        {
+            elements: [
+                {
+                    type: 'radiogroup',
+                    choices: [
+                        {
+                            value: '完全不像我-1',
+                            text: '完全不像我'
+                        },
+                        {
+                            value: '有点像我-2',
+                            text: '有点像我'
+                        },
+                        {
+                            value: '一般像我-3',
+                            text: '一般像我'
+                        },
+                        {
+                            value: '比较像我-4',
+                            text: '比较像我'
+                        },
+                        {
+                            value: '非常像我-5',
+                            text: '非常像我'
+                        }
+                    ],
+                    colCount: 0,
+                    isRequired: true,
+                    name: 'question11',
+                    title: '喜欢思考、讨论科技或数学方面的问题10'
+                }
+            ],
+            name: 'page11'
         }
 
     ]

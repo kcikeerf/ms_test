@@ -52,16 +52,26 @@ class ReportDetailsContainer extends React.Component {
     }
 
     componentDidMount() {
-        // let api_url = getCookie('report_url');
-        // let access_token = getCookie('access_token');
+        let report_url = getCookie('report_url');
+        let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
         // let wx_openid = getCookie(config.COOKIE.WX_OPENID);
-
+        let apiUrl = config.API_DOMAIN + config.API_VERSIONS + report_url;
+        console.log(apiUrl);
+        let data = {
+            access_token:access_token
+        };
         let reportType = 'pupil';
         let reportLabel = '学生';
-        let reportDataPromise = $.get('http://localhost:3000/reports/wlxx/test/pupil.json');
+        // let reportDataPromise = $.get('http://localhost:3000/reports/wlxx/test/pupil.json');
+        let reportDataPromise = $.post(apiUrl,data);
         let reportGroupDataPromise = $.get('http://localhost:3000/reports/wlxx/test/group.json');
         $.when(reportDataPromise, reportGroupDataPromise).done(function (responeData, responeGroupData) {
-            let responseReport = responeData[0];
+
+            let responseReport =JSON.parse(responeData[0]);
+
+            console.log(typeof responseReport);
+            console.log(responseReport);
+
             let responseGroup = responeGroupData[0];
             // 获取试卷的基本信息
             let paperInfo = responseReport.basic;
@@ -1066,70 +1076,73 @@ class ReportDetailsContainer extends React.Component {
                 let selfReportQuizItem = selfReportQuizData[i];
                 let selfReportQuizItemValue = selfReportQuizItem.value;
 
-                let scorePercent = handleFloatNumber(selfReportQuizItemValue.score_average_percent, 2);
-                let score, correctPercent, level;
-                if (reportType === config.REPORT_TYPE_PUPIL) {
-                    score = handleFloatNumber(selfReportQuizItemValue.total_real_score, 2);
-                    if (scorePercent === 1) {
-                        level = 'excellent';
-                    }
-                    else if (scorePercent > 0) {
-                        level = 'good';
+                if(selfReportQuizItemValue){
+
+                    let scorePercent = handleFloatNumber(selfReportQuizItemValue.score_average_percent, 2);
+                    let score, correctPercent, level;
+                    if (reportType === config.REPORT_TYPE_PUPIL) {
+                        score = handleFloatNumber(selfReportQuizItemValue.total_real_score, 2);
+                        if (scorePercent === 1) {
+                            level = 'excellent';
+                        }
+                        else if (scorePercent > 0) {
+                            level = 'good';
+                        }
+                        else {
+                            level = 'failed';
+                        }
                     }
                     else {
-                        level = 'failed';
-                    }
-                }
-                else {
-                    score = handleFloatNumber(selfReportQuizItemValue.score_average, 2);
-                    correctPercent = handleFloatNumber(selfReportQuizItemValue.total_qzp_correct_percent, 2);
-                    if (scorePercent >= 80) {
-                        level = 'excellent';
-                    }
-                    else if (scorePercent >= 60) {
-                        level = 'good';
-                    }
-                    else {
-                        level = 'failed';
-                    }
-                }
-
-                let quizItem = {
-                    selfValue: {
-                        ...selfReportData,
-                        data: {
-                            type: selfReportQuizItem.qzp_type,
-                            id: selfReportQuizItem.qzp_id,
-                            order: selfReportQuizItem.qzp_order,
-                            systemOrder: selfReportQuizItem.qzp_system_order,
-                            customOrder: selfReportQuizItem.qzp_custom_order,
-                            knowledge: selfReportQuizItem.ckps.knowledge,
-                            skill: selfReportQuizItem.ckps.skill,
-                            ability: selfReportQuizItem.ckps.ability,
-                            scorePercent: scorePercent,
-                            score: score,
-                            correctPercent: correctPercent,
-                            level: level
+                        score = handleFloatNumber(selfReportQuizItemValue.score_average, 2);
+                        correctPercent = handleFloatNumber(selfReportQuizItemValue.total_qzp_correct_percent, 2);
+                        if (scorePercent >= 80) {
+                            level = 'excellent';
                         }
-                    },
-                    parentValues: []
-                };
-
-
-                for (let j in parentReports) {
-                    let parentReportQuizItem = parentReports[j].data.qzps[i];
-                    let parentReportQuizItemValue = parentReportQuizItem.value;
-                    let parentQuizItem = {
-                        ...parentReports[j],
-                        data: {
-                            score: handleFloatNumber(parentReportQuizItemValue.score_average, 2),
-                            correctPercent: handleFloatNumber(parentReportQuizItemValue.total_qzp_correct_percent, 2)
+                        else if (scorePercent >= 60) {
+                            level = 'good';
                         }
+                        else {
+                            level = 'failed';
+                        }
+                    }
+
+                    let quizItem = {
+                        selfValue: {
+                            ...selfReportData,
+                            data: {
+                                type: selfReportQuizItem.qzp_type,
+                                id: selfReportQuizItem.qzp_id,
+                                order: selfReportQuizItem.qzp_order,
+                                systemOrder: selfReportQuizItem.qzp_system_order,
+                                customOrder: selfReportQuizItem.qzp_custom_order,
+                                knowledge: selfReportQuizItem.ckps.knowledge,
+                                skill: selfReportQuizItem.ckps.skill,
+                                ability: selfReportQuizItem.ckps.ability,
+                                scorePercent: scorePercent,
+                                score: score,
+                                correctPercent: correctPercent,
+                                level: level
+                            }
+                        },
+                        parentValues: []
                     };
-                    quizItem.parentValues.push(parentQuizItem);
-                }
 
-                quizItems.push(quizItem);
+
+                    for (let j in parentReports) {
+                        let parentReportQuizItem = parentReports[j].data.qzps[i];
+                        let parentReportQuizItemValue = parentReportQuizItem.value;
+                        let parentQuizItem = {
+                            ...parentReports[j],
+                            data: {
+                                score: handleFloatNumber(parentReportQuizItemValue.score_average, 2),
+                                correctPercent: handleFloatNumber(parentReportQuizItemValue.total_qzp_correct_percent, 2)
+                            }
+                        };
+                        quizItem.parentValues.push(parentQuizItem);
+                    }
+
+                    quizItems.push(quizItem);
+                }
 
             }
         }
@@ -1309,8 +1322,9 @@ class ReportDetailsContainer extends React.Component {
             <div className="zy-report-container">
                 <div className="zy-container-top">
                     <div className="zy-nav-top">
-                        <span className="glyphicon glyphicon-chevron-left zy-nav-navBack" onClick={this.handleNavBack.bind(this)}></span>
+                        <span className="material-icons zy-nav-navBack" onClick={this.handleNavBack.bind(this)}>chevron_left</span>
                         <span className="zy-nav-title">在线测试考情快报</span>
+                        <span className="zy-settings-btn" onClick={this.handleNavBack.bind(this)}>&nbsp;</span>
                     </div>
                 </div>
 

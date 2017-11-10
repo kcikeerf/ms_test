@@ -167,7 +167,7 @@ class ChartBarScore extends React.Component {
         let data = this.props.data ? this.props.data : null;
         let option = this.getOption(data);
         let style = {
-            height: '130px',
+            height: '88px',
             width: '100%'
         };
         return (
@@ -258,7 +258,7 @@ class ChartLiquidfillScore extends Component {
         let data = this.props.data ? this.props.data : null;
         let option = this.getOption(data);
         let style = {
-            height: '130px',
+            height: '88px',
             width: '100%'
         };
         let label = data.selfValue.label+'平均分';

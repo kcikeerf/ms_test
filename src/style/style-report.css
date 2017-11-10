@@ -1,22 +1,22 @@
 h1 {
-  font-size: 32px;
+  font-size: 18px;
   margin: 1rem 0; }
 
 h2 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 3px;
   margin: 1rem 0; }
 
 h3 {
-  font-size: 18px;
+  font-size: 14px;
   border-left: 4px solid;
   padding-left: 10px;
   border-color: #4db6ac;
   margin: 1rem 0; }
 
 h4 {
-  font-size: 16px;
+  font-size: 12px;
   margin: 1rem 0; }
 
 .zx-basic-info-box {
@@ -218,13 +218,13 @@ h4 {
     align-items: center; }
     .zx-basic-container .zx-basic-item i {
       color: #757575;
-      font-size: 24px;
+      font-size: 20px;
       margin-right: 5px; }
     .zx-basic-container .zx-basic-item .zx-basic-title {
       color: #757575;
-      margin-right: 15px; }
+      margin-right: 6px; }
     .zx-basic-container .zx-basic-item .zx-basic-content {
-      font-size: 16px; }
+      font-size: 12px; }
 
 .zx-score-container {
   display: flex;
@@ -247,7 +247,7 @@ h4 {
     .zx-score-container .zx-score-item .zx-score-body {
       padding: 10px 15px 15px 15px; }
       .zx-score-container .zx-score-item .zx-score-body .zx-score-content {
-        font-size: 32px; }
+        font-size: 20px; }
     .zx-score-container .zx-score-item .zx-score-footer {
       padding: 10px 15px; }
 
@@ -265,14 +265,15 @@ h4 {
   justify-content: space-between;
   align-items: center; }
   .zx-note-container .zx-note-icon {
-    min-width: 150px;
+    min-width: 50px;
     display: flex;
     justify-content: center; }
     .zx-note-container .zx-note-icon i {
-      font-size: 48px; }
+      font-size: 30px; }
   .zx-note-container .zx-note-content {
     flex-grow: 1; }
     .zx-note-container .zx-note-content .zx-quiz-note {
+      font-size: 12px;
       padding: 4px 0;
       align-items: center;
       display: flex; }
@@ -282,19 +283,19 @@ h4 {
       .zx-note-container .zx-note-content .zx-quiz-note .zx-quiz-note-failed {
         float: left;
         border: 2px solid #e57373;
-        padding: 2px 4px;
+        padding: 1px 2px;
         margin-right: 5px;
         border-radius: 3px; }
       .zx-note-container .zx-note-content .zx-quiz-note .zx-quiz-note-good {
         float: left;
         border: 2px solid #ff9800;
-        padding: 2px 4px;
+        padding: 1px 2px;
         margin-right: 5px;
         border-radius: 3px; }
       .zx-note-container .zx-note-content .zx-quiz-note .zx-quiz-note-excellent {
         float: left;
         border: 2px solid #4fc3f7;
-        padding: 2px 4px;
+        padding: 1px 2px;
         margin-right: 5px;
         border-radius: 3px; }
       .zx-note-container .zx-note-content .zx-quiz-note .zx-standard-level-color-box {
@@ -664,8 +665,9 @@ h4 {
   background-color: #15a892;
   text-align: center; }
   .zy-nav-top .zy-nav-navBack {
+    font-weight: 700;
     float: left;
-    font-size: 18px;
+    font-size: 30px;
     line-height: 48px;
     top: 0;
     width: 50px; }

@@ -21,37 +21,48 @@ class ReportListContainer extends React.Component {
     }
 
     componentDidMount(){
+        this.handleTestList();
+        this.handleTodoList();
+        $('.gs-tab-pane').eq(0).show().siblings().hide();   //只显示测试列表
+    }
+
+    handleTodoList(){
         let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
 
         let todolistUrl = config.API_DOMAIN+ config.API_GET_TODO_LIST;
 
-        let testedUrl  =  config.API_DOMAIN+ config.API_GET_TESTED_LIST;
-
         let data = {
             'access_token':access_token
-        }
+        };
 
         let promiseTodoListUrl = $.post(todolistUrl, data);
-        let promiseTestedListUrl = $.post(testedUrl,data);
 
         promiseTodoListUrl.done(function (responseTodo) {
-            // let publicList = responseTodo.public;
-            // let privates = responseTodo.private;
-            // let dataList = publicList.concat(privates);
             this.setState({
                 todolist:responseTodo,
                 classPreloader:'loaded'
             });
         }.bind(this),'json');
+    }
+
+    handleTestList(){
+        let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
+
+        let testedUrl  =  config.API_DOMAIN+ config.API_GET_TESTED_LIST;
+
+        let data = {
+            'access_token':access_token
+        };
+
+        let promiseTestedListUrl = $.post(testedUrl,data);
 
         promiseTestedListUrl.done(function (responseTest) {
             this.setState({
                 testlist:responseTest
             })
         }.bind(this),'json');
-
-        $('.gs-tab-pane').eq(0).show().siblings().hide();   //只显示测试列表
     }
+
 
     handleTab(e){
         e.preventDefault();
@@ -97,7 +108,7 @@ class ReportListContainer extends React.Component {
                             </div>
 
                             <div className="gs-tab-pane">
-                                <TestedSurveyReportList data={this.state.testlist} />
+                                <TestedSurveyReportList data={this.state.testlist} handleTestList={this.handleTestList.bind(this)}/>
                             </div>
 
                         </div>

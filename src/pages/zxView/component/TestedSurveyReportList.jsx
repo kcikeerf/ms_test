@@ -14,11 +14,12 @@ class TestedSurveyReportList extends React.Component {
 
     render() {
         let dataList = this.props.data;
+        let handleTestList= this.props.handleTestList;
         let reportList;
-        if (dataList != null) {
-            if(dataList.length != 0){
+        if (dataList !== null) {
+            if(dataList.length !== 0){
                 reportList = dataList.map(function (obj, index) {
-                    return <TestedSurveyReportItem key={index} TodoListobj={obj}/>;
+                    return <TestedSurveyReportItem key={index} TestList={obj} handleTestList={handleTestList}/>;
                 })
             }else {
                 reportList = '暂时没有已测试的问卷...'
@@ -35,7 +36,8 @@ class TestedSurveyReportList extends React.Component {
     }
 }
 TestedSurveyReportList.contextTypes = {
-    router: PropTypes.object.isRequired
+    router: PropTypes.object.isRequired,
+    handleTestList: PropTypes.func
 };
 
 export default TestedSurveyReportList;

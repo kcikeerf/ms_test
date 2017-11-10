@@ -231,7 +231,7 @@ class ChartBarScore extends React.Component {
         let data = this.props.data ? this.props.data : null;
         let option =this.getOption(data);
         let style = {
-            height: '150px',
+            height: '88px',
             width: '100%'
         };
         return (
