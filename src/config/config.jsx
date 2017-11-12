@@ -84,9 +84,9 @@ let development = {
 
     SURVEY_ID_URL: [
         {
-            ID: '5a029fcfea336f01c378595a',                             //Report ID
-            QUESTION_URL: '/html/zx-survey-question',      // Report QUESTION URL
-            VIEW_URL: '/html/zx-survey-report'               // Report VIEW URL
+            ID: '5a029fcfea336f01c378595a',                   //Report ID
+            QUESTION_URL: '/html/zx-survey-question',         // Report QUESTION URL
+            VIEW_URL: '/html/zx-survey-report'                // Report VIEW URL
         },
         {
             ID: '5979563a4dd5e07996c67513',
@@ -112,8 +112,8 @@ let production = {
     SURVEY_ID_URL: [
         {
             ID: '5a029fcfea336f01c378595a',                             //Report ID
-            QUESTION_URL: '/zx-survey-question',      // Report QUESTION URL
-            VIEW_URL: '/zx-survey-report'               // Report VIEW URL
+            QUESTION_URL: '/zx-survey/apps/zx-survey-question',         // Report QUESTION URL
+            VIEW_URL: '/zx-survey/apps/zx-survey-report'                // Report VIEW URL
         },
         {
             ID: '5979563a4dd5e07996c67513',
@@ -121,9 +121,9 @@ let production = {
             VIEW_URL: '/report-mq/report-view'
         }
     ],
-    URL_HOME:'/',
-    URL_LIST_VIEW: "/#/todo-list",
-    URL_QUESTION:'/zx-survey-question#/'
+    URL_HOME:'/zx-survey/apps',
+    URL_LIST_VIEW: "/zx-survey/apps/#/todo-list",
+    URL_QUESTION:'/zx-survey/apps/zx-survey-question'
 };
 
 module.exports = {

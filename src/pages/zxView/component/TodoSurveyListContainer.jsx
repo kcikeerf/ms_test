@@ -87,7 +87,7 @@ class ReportListContainer extends React.Component {
                     <div className="zy-container-top">
                         <div className="zy-nav-top">
                             <span className="glyphicon glyphicon-chevron-left zy-nav-navBack" onClick={this.handleNavBack.bind(this)}></span>
-                            <span className="zy-nav-title">综合素质评价</span>
+                            <span className="zy-nav-title">个人测试中心</span>
                         </div>
                     </div>
                     <div className="zy-report-tab-container">
