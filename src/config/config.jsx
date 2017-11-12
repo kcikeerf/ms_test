@@ -86,7 +86,7 @@ let development = {
         {
             ID: '5a029fcfea336f01c378595a',                             //Report ID
             QUESTION_URL: '/html/zx-survey-question',      // Report QUESTION URL
-            VIEW_URL: 'html/zx-survey-report'               // Report VIEW URL
+            VIEW_URL: '/html/zx-survey-report'               // Report VIEW URL
         },
         {
             ID: '5979563a4dd5e07996c67513',
@@ -112,18 +112,18 @@ let production = {
     SURVEY_ID_URL: [
         {
             ID: '5a029fcfea336f01c378595a',                             //Report ID
-            QUESTION_URL: '/build/html/zx-survey-question',      // Report QUESTION URL
-            VIEW_URL: '/build/html/zx-survey-report'               // Report VIEW URL
+            QUESTION_URL: '/zx-survey-question',      // Report QUESTION URL
+            VIEW_URL: '/zx-survey-report'               // Report VIEW URL
         },
         {
             ID: '5979563a4dd5e07996c67513',
-            QUESTION_URL: '/build/html/report-mq/report-question',
-            VIEW_URL: '/build/html/report-mq/report-view'
+            QUESTION_URL: '/report-mq/report-question',
+            VIEW_URL: '/report-mq/report-view'
         }
     ],
-    URL_HOME:'/build/html',
-    URL_LIST_VIEW: "/build/html#/todo-list",
-    URL_QUESTION:'/build/html/zx-survey-question#/'
+    URL_HOME:'/',
+    URL_LIST_VIEW: "/#/todo-list",
+    URL_QUESTION:'/zx-survey-question#/'
 };
 
 module.exports = {
