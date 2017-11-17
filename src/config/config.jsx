@@ -63,7 +63,11 @@ let general = {
     REPORT_TYPE_PUPIL_ICON: 'person',
 
     //cnd 静态文件 群里json
-    CDN_WLXX_GROUP_URL:'http://cdn.k12ke.com/wlxx-data/group/',
+    // CDN_WLXX_GROUP_URL:'http://cdn.k12ke.com/wlxx-data/group/',
+    CDN_WLXX_GROUP_URL:'/reports_warehouse/tests/5a029fcfea336f01c378595a/project/5a029fcfea336f01c378595a.json',
+    CDN_WLXX_QUIZE_URL:'http://cdn.k12ke.com/wlxx-data/quize',
+    CDN_WLXX_RELATED_QUIZE_URL:'http://cdn.k12ke.com/wlxx-data/quize',
+
 
     LOGO: '甄学'
 };

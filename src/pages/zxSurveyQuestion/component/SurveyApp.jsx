@@ -96,6 +96,9 @@ class SurveyAPP extends React.Component{
         this.timeinit = (new Date()).valueOf();   //初始时间 不能变 用于计算整体时间
         this.timestamp = (new Date()).valueOf();  //初始时间 可变  用于计算一道题的答题时间
     }
+    componentDidUpdate(){
+        console.log(1);
+    }
 
     componentWillMount(){
         //配置默认的bootstrap的默认class类,当前使用的都是默认的类名,为了方便以更改全部把接口放出来了。
@@ -185,7 +188,7 @@ class SurveyAPP extends React.Component{
     render(){
         //调查表的数据
         var model = new Survey.Model(this.state.SurveyQuestion);
-
+        console.log(model);
         //更换文字的接口
         model.locale = 'my';
 
@@ -216,6 +219,9 @@ class SurveyAPP extends React.Component{
         //翻页执行的回调函数事件
         let pagechang = function () {
             $('.btn').show();
+
+            //解析html的图片
+            console.log($('.panel-title').text());
         }
 
         //获取localStorage的值

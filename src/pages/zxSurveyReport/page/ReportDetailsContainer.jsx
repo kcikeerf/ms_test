@@ -64,15 +64,11 @@ class ReportDetailsContainer extends React.Component {
         let reportLabel = '学生';
         let reportDataPromise = $.post(apiUrl,data);
 
-        let reportGroupDataPromise = $.get(config.CDN_WLXX_GROUP_URL+'group.json');
+        let reportGroupDataPromise = $.post(config.API_DOMAIN + config.API_VERSIONS + config.CDN_WLXX_GROUP_URL , data);
         $.when(reportDataPromise, reportGroupDataPromise).done(function (responeData, responeGroupData) {
 
             let responseReport =JSON.parse(responeData[0]);
-
-            console.log(typeof responseReport);
-            console.log(responseReport);
-
-            let responseGroup = responeGroupData[0];
+            let responseGroup = JSON.parse(responeGroupData[0]);
             // 获取试卷的基本信息
             let paperInfo = responseReport.basic;
             // 获取满分

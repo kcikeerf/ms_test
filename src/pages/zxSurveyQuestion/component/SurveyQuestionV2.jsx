@@ -321,7 +321,7 @@ var SurveyQuestion={
                     colCount: 0,
                     isRequired: true,
                     name: 'question9',
-                    title: '对方言、外语等语言学得快而好 '
+                    title: '对方言、外语等语言学得快而好'
                 }
             ],
             name: 'page9'

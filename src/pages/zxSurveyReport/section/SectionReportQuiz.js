@@ -132,7 +132,8 @@ class QuizItem extends Component {
         let selectedQuizKnowledgeId = this.props.knowledgeId;
         let selectedQuizParentData = null;
 
-        this.props.handleQuizModalOpen(selectedQuizId, selectedQuizOrder, selectedQuizKnowledge,selectedQuizKnowledgeId, selectedQuizParentData);
+        this.context.router.push(`quiz/${selectedQuizId}`);
+
     }
 
     render() {
@@ -154,5 +155,6 @@ class QuizItem extends Component {
     }
 }
 QuizItem.contextTypes = {
+    router:PropTypes.object.isRequired,
     handleQuizModalOpen: PropTypes.func
 };
