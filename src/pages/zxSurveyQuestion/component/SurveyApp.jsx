@@ -92,16 +92,14 @@ class SurveyAPP extends React.Component{
         };
 
     }
+
     componentDidMount(){
         this.timeinit = (new Date()).valueOf();   //初始时间 不能变 用于计算整体时间
         this.timestamp = (new Date()).valueOf();  //初始时间 可变  用于计算一道题的答题时间
     }
-    componentDidUpdate(){
-        console.log(1);
-    }
 
     componentWillMount(){
-        //配置默认的bootstrap的默认class类,当前使用的都是默认的类名,为了方便以更改全部把接口放出来了。
+        /*默认使用bootstrap的样式,当前使用的都是默认的配置类名,为了方便以更改*/
         Survey.Survey.cssType = 'bootstrap';
         Survey.defaultBootstrapCss.body='panel-body';
         Survey.defaultBootstrapCss.checkbox={
@@ -132,7 +130,7 @@ class SurveyAPP extends React.Component{
             complete:'',
             next:'',
             prev:''
-        }
+        };
         Survey.defaultBootstrapCss.navigationButton = 'btn btn-primary';
         Survey.defaultBootstrapCss.progress='progress center-block';
         Survey.defaultBootstrapCss.progressBar='progress-bar';
@@ -141,7 +139,7 @@ class SurveyAPP extends React.Component{
             indent:'20',
             root:'gs-animation',
             title:'panel-title',
-        }
+        };
         Survey.defaultBootstrapCss.radiogroup={
             item:'radio',
             label:'radio-inline',
@@ -156,7 +154,7 @@ class SurveyAPP extends React.Component{
         Survey.defaultBootstrapCss.row='';
         Survey.defaultBootstrapCss.text='form-control';
 
-        //更换文字的接口
+        /**更换文字**/
         var mycustomSurveyStrings = {
             pagePrevText: '上一题',
             pageNextText: '下一题',
@@ -188,12 +186,12 @@ class SurveyAPP extends React.Component{
     render(){
         //调查表的数据
         var model = new Survey.Model(this.state.SurveyQuestion);
-        console.log(model);
+
         //更换文字的接口
         model.locale = 'my';
 
         //获取用户session
-        var sessionid=getCookie(config.COOKIE.WX_OPENID)?getCookie(config.COOKIE.WX_OPENID):'testid_123456';
+        var sessionid=getCookie(config.COOKIE.WX_OPENID);
 
         //更改标签发生的事件
         var obj={}
@@ -208,20 +206,16 @@ class SurveyAPP extends React.Component{
                 $('.btn').hide();
 
                 //加入答题过度动画效果
-                $('.gs-animation').css({
-                    'transform':'translate(-100%,0)',
-                    'transition':'transform 0.8s ease-in-out'
-                });
+                // $('.gs-animation').css({
+                //     'transform':'translate(-100%,0)',
+                //     'transition':'transform 0.8s ease-in-out'
+                // });
             }
-
-        }
+        };
 
         //翻页执行的回调函数事件
         let pagechang = function () {
             $('.btn').show();
-
-            //解析html的图片
-            console.log($('.panel-title').text());
         }
 
         //获取localStorage的值
@@ -239,12 +233,6 @@ class SurveyAPP extends React.Component{
             let lastquestionTime = (new Date()).valueOf() - this.timestamp;
 
             this.arrTimeObj[Object.keys(survey.data).length] = lastquestionTime;
-
-            // let he=0;
-            // for(let i in this.arrTimeObj){
-            //     he += this.arrTimeObj[i];
-            //
-            // }
 
             //组合json格式数据
             let orderIdjson = this.state.dataIdjson;
@@ -265,7 +253,6 @@ class SurveyAPP extends React.Component{
                 results.push(obj);
             }
             let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
-            console.log(access_token);
             let testId = getCookie(config.COOKIE.QUEST_TESTID);
             let openid = getCookie(config.COOKIE.WX_OPENID);
             let submitData={
@@ -312,16 +299,20 @@ class SurveyAPP extends React.Component{
                 }
             });
 
-        }
+        };
 
-        let html = '<div class="panel-body"><p>你已经完成本次测试，请等待提交结果...</div>';
-
-        model.completedHtml= html;
+        //完成是显示的html
+        model.completedHtml= '<div class="panel-body"><p>你已经完成本次测试，请等待提交结果...</div>';
 
         //自定义样式
         // var myCss={
         //
         // }
+
+        //解析html
+        model.onTextMarkdown.add(function(survey, options){
+            options.html = options.text;
+        });
 
         return (
           <div className='App'>
