@@ -175,7 +175,6 @@ class SectionPageQuizAnalysis extends React.Component {
         let relatedQuizs = this.state.relatedQuizs;
         let selectedQuizId = this.props.params.qzp_id;
 
-
         let content_qzp_answer = this.handleRegData(qzp_answer);
         let quizOtherInfo, quizId, quizKnowledge, quizStatsData, quizStatsStudent, conentQuizStudent;
 

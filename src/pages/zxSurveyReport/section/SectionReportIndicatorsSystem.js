@@ -318,7 +318,7 @@ function pupilTableInclicatorsLvOne(data) {
     let tmpTableData = [], tmpTableAction = [];
     let selfArr = selfLv.data.lvOne;
     for (let i = 0; i < selfArr.length; i++) {
-        tmpTableAction.push(i);
+        tmpTableAction.push(selfArr[i].ckp_uid);
         let arr = [];
         arr.push(selfArr[i].checkpoint);
         for (let j = 0; j < rawData.length; j++) {
@@ -349,8 +349,8 @@ function pupilTableInclicatorsLvTwo(data) {
     let selfArr = selfLv.data.lvTwo;
 
     for (let i = 0; i < selfArr.length; i++) {
-        tmpTableAction.push(i);
         let arr = [];
+        tmpTableAction.push(selfArr[i].ckp_uid);
         arr.push(selfArr[i].checkpoint);
         for (let j = 0; j < rawData.length; j++) {
             let lvnData = rawData[j].data.lvTwo[i];

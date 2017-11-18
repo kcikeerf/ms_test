@@ -21,9 +21,11 @@ export default class TableIndicator extends React.Component {
 
         let target = $(e.target).parents('tr');
         let indicatorID = target.attr('data-id');
+        console.log(indicatorID);
         this.setState({
             activeId: indicatorID
         });
+        this.context.router.push(`indicator/${indicatorID}`);
     }
 
     render() {
@@ -45,7 +47,7 @@ export default class TableIndicator extends React.Component {
                     let content = data[property];
                     if (property === '0') {
                         //注释的是指标推送题方法 同116行
-                        // content = <a href="/">{content}</a>
+                        content = <a href="/">{content}</a>
                         content = <span>{content}</span>
                     }
                     td.push(<td key={property}>{content}</td>);
@@ -71,3 +73,7 @@ export default class TableIndicator extends React.Component {
         )
     }
 }
+
+TableIndicator.contextTypes = {
+    router: PropTypes.object.isRequired
+};
