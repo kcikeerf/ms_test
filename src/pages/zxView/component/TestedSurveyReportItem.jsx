@@ -6,6 +6,8 @@ import ProgressReport from './ProgressReport';
 
 import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 
+import zxbg from 'zx-img/zxbg.png';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class TestedSurveyReportItem extends React.Component {
@@ -52,7 +54,7 @@ class TestedSurveyReportItem extends React.Component {
             content =
                 <div>
                     <button className="btn-primary gs-btn-marign" onClick={this.handleSurvey.bind(this)}>重新自测</button>
-                    <button className="btn-primary gs-btn-marign" onClick={this.handleReport.bind(this)}>查看已生成报告</button>
+                    <button className="btn-primary gs-btn-marign" onClick={this.handleReport.bind(this)}>查看成报告</button>
                 </div>;
         }else {
             content = <ProgressReport
@@ -68,7 +70,7 @@ class TestedSurveyReportItem extends React.Component {
             <section className="zy-report-section">
                 <div className="zx-report-list">
                     <div className="zx-report-left-box">
-                        测试
+                        <img src={zxbg} style={{width:'100%',height:'100%'}} alt=""/>
                     </div>
                     <div className="zx-report-right-box">
                         <h3 className="zx-report-brief">测试名称</h3>

@@ -56,7 +56,7 @@ class ReportDetailsContainer extends React.Component {
         let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
         // let wx_openid = getCookie(config.COOKIE.WX_OPENID);
         let apiUrl = config.API_DOMAIN + config.API_VERSIONS + report_url;
-        console.log(apiUrl);
+
         let data = {
             access_token:access_token
         };
@@ -67,18 +67,24 @@ class ReportDetailsContainer extends React.Component {
         let reportGroupDataPromise = $.post(config.API_DOMAIN + config.API_VERSIONS + config.CDN_WLXX_GROUP_URL , data);
         $.when(reportDataPromise, reportGroupDataPromise).done(function (responeData, responeGroupData) {
 
-            let responseReport =JSON.parse(responeData[0]);
+            let responsePupil =JSON.parse(responeData[0]);
             let responseGroup = JSON.parse(responeGroupData[0]);
+            let responseReport={
+                pupil:responsePupil,
+                project:responseGroup
+            };
             // 获取试卷的基本信息
-            let paperInfo = responseReport.basic;
+            let paperInfo = responsePupil.basic;
             // 获取满分
             let fullScore = paperInfo.score ? parseInt(paperInfo.score, 10) : -1;
             // 获取分化度最大值
             let fullDiff = 200;
+
+            let reports = this.handleReportData(reportType, responseReport);
             // 获取本报告数据
-            let selfReportData = responseReport;
+            let selfReportData = reports.selfReport;
             // 获取父级报告数据（如果是区域报告为空）
-            let parentReports = [responseGroup];
+            let parentReports =reports.parentReports;
             // 组装报告的信息
             let selfReportInfo = {
                 reportType,
@@ -117,7 +123,7 @@ class ReportDetailsContainer extends React.Component {
             if (reports.hasOwnProperty(property) && property !== 'paper_info') {
                 let reportItem = {
                     type: property,
-                    data: reports[property]
+                    ...reports[property]
                 };
                 // 区域报告
                 if (property === config.REPORT_TYPE_PROJECT) {
@@ -509,23 +515,23 @@ class ReportDetailsContainer extends React.Component {
             {
                 type: 'testSubject',
                 order: 3,
-                value: reportBasicData.subject ? reportBasicData.subject : '无'
+                value: reportBasicData.subject ? reportBasicData.subject : '数学'
             },
             {
                 type: 'testFullScore',
                 order: 6,
-                value: paperInfo.score ? paperInfo.score : '无'
+                value: paperInfo.score ? paperInfo.score : '100'
             },
             {
                 type: 'testType',
                 order: 8,
-                value: reportBasicData.quiz_type ? reportBasicData.quiz_type : '无'
+                value: reportBasicData.quiz_type ? reportBasicData.quiz_type : '测试'
             },
 
             {
                 type: 'testDate',
                 order: 9,
-                value: reportBasicData.quiz_date ? reportBasicData.quiz_date : '无'
+                value: reportBasicData.quiz_date ? reportBasicData.quiz_date : '2017/11/11'
             },
         ];
 

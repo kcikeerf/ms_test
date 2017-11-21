@@ -222,7 +222,8 @@ h4 {
       margin-right: 5px; }
     .zx-basic-container .zx-basic-item .zx-basic-title {
       color: #757575;
-      margin-right: 6px; }
+      margin-right: 6px;
+      min-width: 30px; }
     .zx-basic-container .zx-basic-item .zx-basic-content {
       font-size: 12px; }
 
@@ -245,7 +246,7 @@ h4 {
         color: #757575;
         font-size: 24px; }
     .zx-score-container .zx-score-item .zx-score-body {
-      padding: 10px 15px 15px 15px; }
+      padding: 0px 15px 5px 15px; }
       .zx-score-container .zx-score-item .zx-score-body .zx-score-content {
         font-size: 20px; }
     .zx-score-container .zx-score-item .zx-score-footer {

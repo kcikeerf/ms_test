@@ -250,6 +250,7 @@ h4 {
     .zx-basic-title {
       color: #757575;
       margin-right: 6px;
+      min-width: 30px;
     }
     .zx-basic-content {
       font-size: 12px;
@@ -280,7 +281,7 @@ h4 {
       }
     }
     .zx-score-body {
-      padding: 10px 15px 15px 15px;
+      padding: 0px 15px 5px 15px;
       .zx-score-content {
         font-size: 20px;
       }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; // ES6
 import $ from 'jquery';
 import * as Survey from 'survey-react';
 
-import surveyQuestion from './SurveyQuestionTest';
+import surveyQuestion from './SurveyQuestion';
 
 import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 let config = require('zx-const')[process.env.NODE_ENV];
@@ -158,7 +158,7 @@ class SurveyAPP extends React.Component{
         var mycustomSurveyStrings = {
             pagePrevText: '上一题',
             pageNextText: '下一题',
-            completeText: '提交',
+            completeText: '完成提交',
             progressText:'当前第{0}页,一共{1}页',
             requiredError:'请回答完这道题，否则不能进行下一题'
         };
@@ -292,13 +292,11 @@ class SurveyAPP extends React.Component{
                     let sessionid=getCookie(config.COOKIE.WX_OPENID);
                     localStorage.removeItem(sessionid);  //清除本地存储
                     that.context.router.push('/success');
-                    console.log(result);
                 },
                 error:function (status) {
                     that.context.router.push('/error');
                 }
             });
-
         };
 
         //完成是显示的html

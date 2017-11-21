@@ -2,6 +2,8 @@ import React from 'react';
 
 import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 
+import zxcs from 'zx-img/zxcs.png';
+
 let config = require('zx-const')[process.env.NODE_ENV];
 
 class ReportItem extends React.Component{
@@ -29,7 +31,7 @@ class ReportItem extends React.Component{
 
                 <div className="zx-report-list">
                     <div className="zx-report-left-box">
-                        测试
+                        <img src={zxcs} style={{width:'100%',height:'100%'}} alt=""/>
                     </div>
                     <div className="zx-report-right-box">
                         <h3 className="zx-report-brief">测试名称：</h3>

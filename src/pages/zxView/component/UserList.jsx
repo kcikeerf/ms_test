@@ -16,7 +16,7 @@ class UserList extends React.Component {
         let has_binded_user = this.props.hasBindedUser;
         let binded_users = this.props.bindedUsers;
         let zxAccessMatser = this.props.zxAccessMatser;
-        console.log(zxAccessMatser);
+
         let users;
         let mianUser;
         if(zxAccessMatser){
