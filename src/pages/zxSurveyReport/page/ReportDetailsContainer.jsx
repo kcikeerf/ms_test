@@ -69,6 +69,7 @@ class ReportDetailsContainer extends React.Component {
 
             let responsePupil =JSON.parse(responeData[0]);
             let responseGroup = JSON.parse(responeGroupData[0]);
+            console.log(responsePupil);
             let responseReport={
                 pupil:responsePupil,
                 project:responseGroup

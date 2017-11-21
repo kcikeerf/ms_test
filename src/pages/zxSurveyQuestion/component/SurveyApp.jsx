@@ -255,6 +255,7 @@ class SurveyAPP extends React.Component{
             let access_token = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
             let testId = getCookie(config.COOKIE.QUEST_TESTID);
             let openid = getCookie(config.COOKIE.WX_OPENID);
+            let unionid = getCookie(config.COOKIE.WX_UNIONID);
             let submitData={
                 access_token:access_token,
                 test_id:testId,
@@ -274,6 +275,7 @@ class SurveyAPP extends React.Component{
                     }
                 },
                 wx_openid:openid,
+                wx_unionid:unionid,
                 result:results
             };
             console.log(submitData);

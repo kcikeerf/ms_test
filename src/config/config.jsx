@@ -81,8 +81,8 @@ let development = {
 
     //开发环境所需cookie
     TEST_USER_NAME: 'fa89114219116sy',
-    TEST_WECHAT_OPENID: 'oQgmFwqpZQYhfL8WXIKkqGJ_k104',
-    TEST_WECHAT_UNIONID: 'orSLk0taXe9otRBoVlvA-SlCWF1k',
+    TEST_WECHAT_OPENID: 'o6fABs28uOK-qxOFtXL-OhbVgO5s',
+    TEST_WECHAT_UNIONID: 'orSLk0p3g-d-q1QD8-YXeJAKq288',
 
     //php服务器环境
     API_LOGIN_STATE:'wlxx',
@@ -94,9 +94,9 @@ let development = {
             VIEW_URL: '/html/zx-survey-report'                // Report VIEW URL
         },
         {
-            ID: '5979563a4dd5e07996c67513',
-            QUESTION_URL: '/build/html/report-mq/report-question',
-            VIEW_URL: '/html/report-mq/report-view'
+            ID: '5a13eff4ea336f0c97ed4413',
+            QUESTION_URL: '/html/zx-survey-question',
+            VIEW_URL: '/html/zx-survey-report'
         }
     ],
     URL_HOME:'/html',
@@ -121,9 +121,9 @@ let production = {
             VIEW_URL: '/zx-survey/apps/zx-survey-report'                // Report VIEW URL
         },
         {
-            ID: '5979563a4dd5e07996c67513',
-            QUESTION_URL: '/report-mq/report-question',
-            VIEW_URL: '/report-mq/report-view'
+            ID: '5a13eff4ea336f0c97ed4413',
+            QUESTION_URL: '/zx-survey/apps/zx-survey-question',
+            VIEW_URL: '/zx-survey/apps/zx-survey-report'
         }
     ],
     URL_HOME:'/zx-survey/apps',
