@@ -28,7 +28,6 @@ class ProgressReport extends React.Component {
     setIntervalApi(api_url, data) {
         let t = setInterval(function () {
             $.post(api_url, data, function (response) {
-                console.log(response);
                 this.setState({
                     progress: response.jobs[0].progress
                 });

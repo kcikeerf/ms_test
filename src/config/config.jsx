@@ -39,7 +39,8 @@ let general = {
         QUEST_TESTID:'question_testid',
         MAIN_ACCESS_TOKEN: 'zx_main_access_token',
         SELECTED_ACCESS_TOKEN:'selected_access_token',
-        CLIENT_ACCESS_TOKEN: 'client_access_token'
+        CLIENT_ACCESS_TOKEN: 'client_access_token',
+        WX_NAME:'name'
     },
 
     //测试列表的地址
@@ -64,7 +65,7 @@ let general = {
 
     //cnd 静态文件 群里json
     // CDN_WLXX_GROUP_URL:'http://cdn.k12ke.com/wlxx-data/group/',
-    CDN_WLXX_GROUP_URL:'/reports_warehouse/tests/5a029fcfea336f01c378595a/project/5a029fcfea336f01c378595a.json',
+    CDN_WLXX_GROUP_URL:'/reports_warehouse/tests/5a13eff4ea336f0c97ed4413/project/5a13eff4ea336f0c97ed4413.json',
     CDN_WLXX_QUIZE_URL:'http://cdn.k12ke.com/wlxx-data/quize',
     CDN_WLXX_RELATED_QUIZE_URL:'http://cdn.k12ke.com/wlxx-data/quize',
     CDN_WLXX_INDICATOR_QUIZE_URL:'http://cdn.k12ke.com/wlxx-data/indicator',

@@ -45,10 +45,10 @@ class TodoSurveyReportList extends React.Component {
                     <h3 className="zx-survey-title">公开测试</h3>
                     {todoPublicList}
                 </div>
-                <div className="zx-private-list">
-                    <h3 className="zx-survey-title">项目测试</h3>
-                    {todoPrivateList}
-                </div>
+                {/*<div className="zx-private-list">*/}
+                    {/*<h3 className="zx-survey-title">项目测试</h3>*/}
+                    {/*{todoPrivateList}*/}
+                {/*</div>*/}
             </div>
         )
     }

@@ -262,13 +262,13 @@ class SurveyAPP extends React.Component{
                 basic:{
                     test:{
                         data:nowDate,
-                        describe:'这是发展潜能报告，用来测试发展潜能',
+                        describe:'未来学校项目demo展示',
                         duration:newTimeAll,
                         end_date:'20170616 09:53',
                         explainTime:this.arrTimeObj[0],
-                        name:'甄学V1.2多元智能问卷测试',
+                        name:'甄学小学数学自测',
                         start_date:'20170609 09:52',
-                        title:'2017年发展潜能测试'
+                        title:'数学自测'
                     },
                     user_info:{
 

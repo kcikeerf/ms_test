@@ -57,6 +57,7 @@ class ReportDetailsContainer extends React.Component {
         // let wx_openid = getCookie(config.COOKIE.WX_OPENID);
         let apiUrl = config.API_DOMAIN + config.API_VERSIONS + report_url;
 
+
         let data = {
             access_token:access_token
         };
@@ -463,7 +464,8 @@ class ReportDetailsContainer extends React.Component {
         let reportType = selfReportInfo.reportType;
         let reportLabel = selfReportInfo.reportLabel;
         let reportBasicData = selfReportData.data.basic;
-        let reportTitle = paperInfo.name;
+        // let reportTitle = paperInfo.name;
+        let reportTitle = getCookie(config.COOKIE.WX_NAME);
         let reportHeading = paperInfo.title;
 
         /*
@@ -511,7 +513,8 @@ class ReportDetailsContainer extends React.Component {
             {
                 type: 'testDistrict',
                 order: 1,
-                value: (paperInfo.province && paperInfo.city && paperInfo.district) ? (paperInfo.province + paperInfo.city + paperInfo.district) : '无'
+                // value: (paperInfo.province && paperInfo.city && paperInfo.district) ? (paperInfo.province + paperInfo.city + paperInfo.district) : '无'
+                value: '北京'
             },
             {
                 type: 'testSubject',

@@ -68,8 +68,10 @@ class ViewContainer extends React.Component {
             let zxAccessMatser = parsedResponse.master;
             let zxAccessSlave = parsedResponse.slave;
             let zxMainAccessToken = zxAccessMatser.oauth.access_token;
+            let wxName = zxAccessMatser.name;
             let hasBindedUser = (zxAccessSlave && zxAccessSlave.length !== 0);
             createCookie(config.COOKIE.MAIN_ACCESS_TOKEN, zxMainAccessToken);
+            createCookie(config.COOKIE.WX_NAME, wxName);
             this.setState({
                 zxMainAccessToken: zxMainAccessToken,
                 zxAccessMatser:zxAccessMatser,
