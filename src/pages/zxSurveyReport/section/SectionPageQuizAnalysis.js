@@ -33,7 +33,7 @@ class SectionPageQuizAnalysis extends React.Component {
             qzp_id: qzp_id,
         });
 
-        let api_quiz_details = config.CDN_WLXX_QUIZE_URL + '/quize.json';
+        let api_quiz_details = config.CDN_WLXX_QUIZE_URL;
 
         let data = {
             access_token: userAccessToken,
@@ -81,7 +81,7 @@ class SectionPageQuizAnalysis extends React.Component {
 
     // 推题的方法
     quizsPlus(userAccessToken, quiz_uid) {
-        let api_quiz_details = config.CDN_WLXX_RELATED_QUIZE_URL + '/qiuz_detail.json';
+        let api_quiz_details = config.CDN_WLXX_RELATED_QUIZE_URL;
         let relatedQuizsPromise = $.get(api_quiz_details);
         relatedQuizsPromise.done(function (responses) {
             let reaponeseArr = [];

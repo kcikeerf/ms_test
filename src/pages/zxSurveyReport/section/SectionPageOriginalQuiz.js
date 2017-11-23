@@ -22,7 +22,7 @@ class SectionPageQuizAnalysis extends React.Component {
         // let test_id = this.props.params.test_id;
         let ckp_id = this.props.params.ckp_id;
 
-        let api_quiz_details = config.CDN_WLXX_INDICATOR_QUIZE_URL + '/detail.json';
+        let api_quiz_details = config.CDN_WLXX_INDICATOR_QUIZE_URL;
 
         let qzp_order, qzp_body, qzp_answer, quiz_uid;
 

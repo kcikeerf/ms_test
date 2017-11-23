@@ -249,6 +249,8 @@ h4 {
       padding: 0px 15px 5px 15px; }
       .zx-score-container .zx-score-item .zx-score-body .zx-score-content {
         font-size: 20px; }
+      .zx-score-container .zx-score-item .zx-score-body .zx-score-subcontent {
+        font-size: 12px; }
     .zx-score-container .zx-score-item .zx-score-footer {
       padding: 10px 15px; }
 

@@ -78,7 +78,8 @@ class ReportDetailsContainer extends React.Component {
             // 获取试卷的基本信息
             let paperInfo = responsePupil.basic;
             // 获取满分
-            let fullScore = paperInfo.score ? parseInt(paperInfo.score, 10) : -1;
+            // let fullScore = paperInfo.score ? parseInt(paperInfo.score, 10) : -1;
+            let fullScore = 100;
             // 获取分化度最大值
             let fullDiff = 200;
 
@@ -508,7 +509,8 @@ class ReportDetailsContainer extends React.Component {
         // 报告类型
         let reportType = selfReportInfo.reportType;
         let basicData;
-
+        let myDate = new Date();
+        let testTime = myDate.toLocaleDateString( );
         let general = [
             {
                 type: 'testDistrict',
@@ -535,7 +537,8 @@ class ReportDetailsContainer extends React.Component {
             {
                 type: 'testDate',
                 order: 9,
-                value: reportBasicData.quiz_date ? reportBasicData.quiz_date : '2017/11/11'
+                // value: reportBasicData.quiz_date ? reportBasicData.quiz_date : '2017/11/25'
+                value: testTime
             },
         ];
 
@@ -1325,7 +1328,7 @@ class ReportDetailsContainer extends React.Component {
         }
 
         return (
-            <div className="zy-report-container">
+            <div className="container-fluid zy-report-container">
                 <div className="zy-container-top">
                     <div className="zy-nav-top">
                         <span className="material-icons zy-nav-navBack" onClick={this.handleNavBack.bind(this)}>chevron_left</span>
