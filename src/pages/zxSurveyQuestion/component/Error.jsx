@@ -24,7 +24,7 @@ class Error extends React.Component {
                     <div className="zy-nav-top">
                         <span className="glyphicon glyphicon-chevron-left zy-nav-navBack"
                               onClick={this.handleNavBack.bind(this)}></span>
-                        <span className="zy-nav-title">发展潜能调查表</span>
+                        <span className="zy-nav-title">在线测试</span>
                     </div>
                 </div>
                 <div className="zy-survey-container-body container-fluid">
