@@ -226,18 +226,18 @@ class SectionPageQuizAnalysis extends React.Component {
                         <div className="zy-qzp-body-container zy-qzp-answer-diaplay zy-overflow-x-scroll"
                              dangerouslySetInnerHTML={{__html: item.answer}}/>
                     </section>
-                    <section className="zy-report-subsection">
-                        <h3 className="zy-report-subsection-title">题型</h3>
-                        <div className="zy-qzp-body-container">
-                            {item.cat_cn}
-                        </div>
-                    </section>
-                    <section className="zy-report-subsection">
-                        <h3 className="zy-report-subsection-title">难度</h3>
-                        <div className="zy-qzp-body-container">
-                            {item.levelword}
-                        </div>
-                    </section>
+                    {/*<section className="zy-report-subsection">*/}
+                        {/*<h3 className="zy-report-subsection-title">题型</h3>*/}
+                        {/*<div className="zy-qzp-body-container">*/}
+                            {/*{item.cat_cn}*/}
+                        {/*</div>*/}
+                    {/*</section>*/}
+                    {/*<section className="zy-report-subsection">*/}
+                        {/*<h3 className="zy-report-subsection-title">难度</h3>*/}
+                        {/*<div className="zy-qzp-body-container">*/}
+                            {/*{item.levelword}*/}
+                        {/*</div>*/}
+                    {/*</section>*/}
                 </section>
             }.bind(this));
         }

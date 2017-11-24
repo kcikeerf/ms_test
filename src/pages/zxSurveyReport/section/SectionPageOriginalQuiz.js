@@ -19,34 +19,40 @@ class SectionPageQuizAnalysis extends React.Component {
 
     componentDidMount() {
         let userAccessToken = getCookie(config.COOKIE.SELECTED_ACCESS_TOKEN);
-        // let test_id = this.props.params.test_id;
+        let test_id = this.props.params.test_id;
         let ckp_id = this.props.params.ckp_id;
 
+        let data = {
+            access_token: userAccessToken,
+            test_uid: test_id,
+            ckp_uid: ckp_id
+        };
+        let api_qiuze_plus = config.API_DOMAIN + config.API_GET_PAPER_QUIZ_CKPS;
         let api_quiz_details = config.CDN_WLXX_INDICATOR_QUIZE_URL;
 
         let qzp_order, qzp_body, qzp_answer, quiz_uid;
+        let quizDetailsProsmis = $.get(api_quiz_details);
+        let quizPlusProsmis = $.post(api_qiuze_plus, data);
 
-        $.get(api_quiz_details, function (responses, status) {
+        $.when(quizPlusProsmis, quizDetailsProsmis).done(function (indicatorQuizeResponse, paperQuizCkpsResponse) {
+            indicatorQuizeResponse = indicatorQuizeResponse[0];
+            paperQuizCkpsResponse = paperQuizCkpsResponse[0];
             let reaponeseArr = [];
-            for (let i = 0; i < responses.length; i++) {
-                if (responses[i].ckp_id === ckp_id) {
-                    reaponeseArr.push(...responses[i].data);
-                    break;
+            for (let i = 0; i < indicatorQuizeResponse.qzps.length; i++) {
+                for (let j = 0; j < paperQuizCkpsResponse.length; j++) {
+                    if (indicatorQuizeResponse.qzps[i].uid === paperQuizCkpsResponse[j].id) {
+                        reaponeseArr.push(paperQuizCkpsResponse[j]);
+                    }
                 }
             }
-            if (reaponeseArr.length !== 0) {
-                this.setState({
-                    classPreloader: 'loaded',
-                    relatedQuizs: reaponeseArr
-                });
-            }
+            this.setState({
+                classPreloader: 'loaded',
+                relatedQuizs: reaponeseArr
+            });
 
-        }.bind(this), 'json')
-            .fail(function (status) {
-                this.setState({
-                    classPreloader: ''
-                });
-            }.bind(this));
+        }.bind(this)).fail(function (errorResponse) {
+            console.log(errorResponse);
+        }.bind(this));
     }
 
     handleNavBack(event) {
@@ -113,26 +119,29 @@ class SectionPageQuizAnalysis extends React.Component {
 
         let content_modal, relatedQuizItem;
 
-        if (relatedQuizs) {
+        if (relatedQuizs && relatedQuizs.length!==0) {
             relatedQuizItem = relatedQuizs.map(function (item, index) {
-                return(
-                <section className="zy-report-section" key={index}>
-                    <h2 className="zy-section-title">第{item.order}题</h2>
-                    <section className="zy-report-subsection">
-                        <h3 className="zy-report-subsection-title">题目</h3>
-                        <div className="zy-qzp-body-container zy-overflow-x-scroll"
-                             dangerouslySetInnerHTML={{__html: item.text}}/>
-                    </section>
-                    <section className="zy-report-subsection">
-                        <h3 className="zy-report-subsection-title">参考答案</h3>
-                        <button type="button" className="btn zy-btn-answer-color"
-                                onClick={this.handleAnswerDisplay.bind(this)}>查看答案
-                        </button>
-                        <div className="zy-qzp-body-container zy-qzp-answer-diaplay zy-overflow-x-scroll"
-                             dangerouslySetInnerHTML={{__html: item.answer}}/>
-                    </section>
-                </section>)
+                return (
+                    <section className="zy-report-section" key={index}>
+                        <h2 className="zy-section-title">第{item.order}题</h2>
+                        <section className="zy-report-subsection">
+                            <h3 className="zy-report-subsection-title">题目</h3>
+                            <div className="zy-qzp-body-container zy-overflow-x-scroll"
+                                 dangerouslySetInnerHTML={{__html: item.text}}/>
+                        </section>
+                        <section className="zy-report-subsection">
+                            <h3 className="zy-report-subsection-title">参考答案</h3>
+                            <button type="button" className="btn zy-btn-answer-color"
+                                    onClick={this.handleAnswerDisplay.bind(this)}>查看答案
+                            </button>
+                            <div className="zy-qzp-body-container zy-qzp-answer-diaplay zy-overflow-x-scroll"
+                                 dangerouslySetInnerHTML={{__html: item.answer}}/>
+                        </section>
+                    </section>)
             }.bind(this));
+        }else {
+
+            relatedQuizItem = <section className="zy-report-section" style={{textAlign:"center"}}>网络延时，请重新加载...</section>
         }
 
         let style = {
@@ -146,7 +155,7 @@ class SectionPageQuizAnalysis extends React.Component {
                     <div className="zy-container-top">
                         <div className="zy-nav-top">
                             <span className="material-icons zy-nav-navBack" onClick={this.handleNavBack.bind(this)}>chevron_left</span>
-                            <span className="zy-nav-title">快报试题分析</span>
+                            <span className="zy-nav-title">快报试题</span>
                         </div>
                     </div>
                     <div className="zy-container">

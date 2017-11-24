@@ -19,13 +19,17 @@ export default class TableIndicator extends React.Component {
         e.preventDefault();
         e.stopPropagation();
 
+        let report_url = getCookie('report_url');
+        let urlArr = report_url.split('/');
+        let testId = urlArr[urlArr.indexOf('tests')+1];
+
         let target = $(e.target).parents('tr');
         let indicatorID = target.attr('data-id');
-        console.log(indicatorID);
+
         this.setState({
             activeId: indicatorID
         });
-        this.context.router.push(`indicator/${indicatorID}`);
+        this.context.router.push(`indicator/${testId}/${indicatorID}`);
     }
 
     render() {
