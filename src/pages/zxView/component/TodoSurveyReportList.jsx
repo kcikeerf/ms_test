@@ -13,7 +13,6 @@ class TodoSurveyReportList extends React.Component {
 
     render() {
         let dataList = this.props.data;
-        console.log(dataList);
 
         let todoPublicList,todoPrivateList;
         if (dataList != null) {

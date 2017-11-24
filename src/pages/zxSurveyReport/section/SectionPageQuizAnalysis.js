@@ -46,7 +46,6 @@ class SectionPageQuizAnalysis extends React.Component {
 
         $.get(api_quiz_details, data, function (responses, status) {
             let reaponeseArr = [];
-            console.log(responses);
             for(let i=0;i<responses.length;i++){
                 if(responses[i].id === qzp_id){
                     reaponeseArr.push(responses[i]);
@@ -54,7 +53,6 @@ class SectionPageQuizAnalysis extends React.Component {
                 }
             }
             let response = reaponeseArr[0];
-            console.log(response);
             quiz_uid = response.id;
             qzp_order = response.order;
             // qzp_order = this.isQzpOrder(response.qzp_custom_order, response.qzp_order, response.qzp_asc_order);

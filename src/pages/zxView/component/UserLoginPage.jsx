@@ -55,7 +55,6 @@ class UserLogin extends React.Component {
         };
 
         $.post(api_url, data, function (response, status) {
-                console.log(response);
                 createCookie('access_token', response.access_token);
                 this.setState({
                     alertClass: 'alert-success',

@@ -278,7 +278,6 @@ class SurveyAPP extends React.Component{
                 wx_unionid:unionid,
                 result:results
             };
-            console.log(submitData);
             let url = config.API_DOMAIN+config.API_SUBMIT_RESULT;
             let that = this;
             $.ajax({
