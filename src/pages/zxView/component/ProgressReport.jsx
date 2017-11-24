@@ -31,7 +31,7 @@ class ProgressReport extends React.Component {
                 this.setState({
                     progress: response.jobs[0].progress
                 });
-                if (response.jobs[0].progress == 1) {
+                if (response.jobs[0].progress >= 1) {
                     clearInterval(t);
                     this.props.handleTestList();
                 }

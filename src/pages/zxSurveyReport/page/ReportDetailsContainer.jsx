@@ -12,6 +12,7 @@ import '../../../style/style-view.css';
 import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 import {handleAssembleReportUrl} from 'zx-misc/handleReportUrl';
 import handleFloatNumber from 'zx-misc/handleFloatNumber';
+import handleIsGroup from 'zx-misc/handleIsGroup';
 
 import handleReportType from '../misc/handleReportType';
 import handleReportLabel from '../misc/handleReportLabel';
@@ -70,6 +71,12 @@ class ReportDetailsContainer extends React.Component {
 
             let responsePupil =JSON.parse(responeData[0]);
             let responseGroup = JSON.parse(responeGroupData[0]);
+
+            let isGroup = handleIsGroup(responseGroup);
+            if(!isGroup){
+                responseGroup = require('./group.json');
+            }
+
             let responseReport={
                 pupil:responsePupil,
                 project:responseGroup
