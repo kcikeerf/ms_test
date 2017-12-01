@@ -92,14 +92,16 @@ let development = {
 
     SURVEY_ID_URL: [
         {
-            ID: '5a029fcfea336f01c378595a',                   //Report ID
+            ID: '5a13eff4ea336f0c97ed4413',                   //Report ID
             QUESTION_URL: '/html/zx-survey-question',         // Report QUESTION URL
-            VIEW_URL: '/html/zx-survey-report'                // Report VIEW URL
+            VIEW_URL: '/html/zx-survey-report',                // Report VIEW URL
+            LABEL:'数学'
         },
         {
-            ID: '5a13eff4ea336f0c97ed4413',
-            QUESTION_URL: '/html/zx-survey-question',
-            VIEW_URL: '/html/zx-survey-report'
+            ID: '5a1fe819ea336f4bb61df70d',
+            QUESTION_URL: '/html/zx-survey-english-question',
+            VIEW_URL: '/html/zx-survey-report',
+            LABEL:'英语'
         }
     ],
     URL_HOME:'/html',
@@ -119,14 +121,16 @@ let production = {
 
     SURVEY_ID_URL: [
         {
-            ID: '5a029fcfea336f01c378595a',                             //Report ID
+            ID: '5a13eff4ea336f0c97ed4413',                             //Report ID
             QUESTION_URL: '/zx-survey/apps/zx-survey-question',         // Report QUESTION URL
-            VIEW_URL: '/zx-survey/apps/zx-survey-report'                // Report VIEW URL
+            VIEW_URL: '/zx-survey/apps/zx-survey-report',               // Report VIEW URL
+            LABEL:'数学'
         },
         {
-            ID: '5a13eff4ea336f0c97ed4413',
-            QUESTION_URL: '/zx-survey/apps/zx-survey-question',
-            VIEW_URL: '/zx-survey/apps/zx-survey-report'
+            ID: '5a1fe819ea336f4bb61df70d',
+            QUESTION_URL: '/zx-survey/apps/zx-survey-english-question',
+            VIEW_URL: '/zx-survey/apps/zx-survey-report',
+            LABEL:'英语'
         }
     ],
     URL_HOME:'/zx-survey/apps',

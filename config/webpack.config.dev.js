@@ -68,6 +68,12 @@ module.exports = {
             // Errors should be considered fatal in development
             require.resolve('react-error-overlay'),
             paths.zxSurveyReport.indexJs
+        ],
+        zxSurveyEnglishQuestion:[
+            require.resolve('react-dev-utils/webpackHotDevClient'),
+            require.resolve('./polyfills'),
+            require.resolve('react-error-overlay'),
+            paths.zxSurveyEnglishQuestion.indexJs
         ]
     },
     output: {
@@ -297,7 +303,15 @@ module.exports = {
             chunks: ['zxSurveyQuestion'],
         }),
 
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
+            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
+            chunks: ['zxSurveyEnglishQuestion'],
+        }),
+
         // ZX zxSurveyReport
+
         new HtmlWebpackPlugin({
             inject: true,
             template: paths.zxSurveyReport.htmlTemplate,

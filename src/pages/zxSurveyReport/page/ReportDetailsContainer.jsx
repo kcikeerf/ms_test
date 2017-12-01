@@ -58,6 +58,20 @@ class ReportDetailsContainer extends React.Component {
         // let wx_openid = getCookie(config.COOKIE.WX_OPENID);
         let apiUrl = config.API_DOMAIN + config.API_VERSIONS + report_url;
 
+        let arrUrl = apiUrl.split('/');
+
+        let testid = arrUrl[arrUrl.indexOf('tests')+1];
+        console.log(testid);
+        let projectid = arrUrl[arrUrl.indexOf('project')+1];
+
+        let groupUrl = apiUrl.substring(0,apiUrl.indexOf('project'))+"project/"+projectid+'.json';
+
+        let labelType;
+        for(let i=0;i<config.SURVEY_ID_URL.length;i++){
+            if(testid == config.SURVEY_ID_URL[i].ID){
+                labelType=config.SURVEY_ID_URL[i].LABEL;
+            }
+        }
 
         let data = {
             access_token:access_token
@@ -66,7 +80,7 @@ class ReportDetailsContainer extends React.Component {
         let reportLabel = '学生';
         let reportDataPromise = $.post(apiUrl,data);
 
-        let reportGroupDataPromise = $.post(config.API_DOMAIN + config.API_VERSIONS + config.CDN_WLXX_GROUP_URL , data);
+        let reportGroupDataPromise = $.post(groupUrl, data);
         $.when(reportDataPromise, reportGroupDataPromise).done(function (responeData, responeGroupData) {
 
             let responsePupil =JSON.parse(responeData[0]);
@@ -99,7 +113,8 @@ class ReportDetailsContainer extends React.Component {
                 reportType,
                 reportLabel,
                 fullScore,
-                fullDiff
+                fullDiff,
+                labelType
             };
 
             // 获取区块配置信息 - main
@@ -527,7 +542,7 @@ class ReportDetailsContainer extends React.Component {
             {
                 type: 'testSubject',
                 order: 3,
-                value: reportBasicData.subject ? reportBasicData.subject : '数学'
+                value: selfReportInfo.labelType
             },
             {
                 type: 'testFullScore',

@@ -75,6 +75,10 @@ module.exports = {
             // We ship a few polyfills by default:
             require.resolve('./polyfills'),
             paths.zxSurveyReport.indexJs
+        ],
+        zxSurveyEnglishQuestion:[
+            require.resolve('./polyfills'),
+            paths.zxSurveyEnglishQuestion.indexJs
         ]
     },
     output: {
@@ -285,6 +289,17 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor-english-question'],
+            filename: 'static/js/vendor-english-question.[chunkhash].js',
+            chunks: [
+                'zxSurveyEnglishQuestion'
+            ],
+            minChunks: function(module){
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+
+        new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor-report'],
             filename: 'static/js/vendor-report.[chunkhash].js',
             chunks: [
@@ -302,9 +317,11 @@ module.exports = {
                 'vendor-view',
                 'vendor-question',
                 'vendor-report',
+                'vendor-english-question',
                 'zxView',
                 'zxSurveyQuestion',
-                'zxSurveyReport'
+                'zxSurveyReport',
+                'zxSurveyEnglishQuestion'
             ],
             minChunks: 2
         }),
@@ -359,6 +376,29 @@ module.exports = {
             },
             chunksSortMode: function (a, b) {
                 let order = ['manifest', 'common', 'vendor-question', 'zxSurveyQuestion'];
+                return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
+            }
+        }),
+
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
+            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
+            chunks: ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'],
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+            chunksSortMode: function (a, b) {
+                let order = ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'];
                 return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
             }
         }),
