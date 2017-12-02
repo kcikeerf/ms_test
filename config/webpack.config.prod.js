@@ -316,12 +316,12 @@ module.exports = {
             chunks: [
                 'vendor-view',
                 'vendor-question',
-                'vendor-report',
                 'vendor-english-question',
+                'vendor-report',
                 'zxView',
                 'zxSurveyQuestion',
-                'zxSurveyReport',
-                'zxSurveyEnglishQuestion'
+                'zxSurveyEnglishQuestion',
+                'zxSurveyReport'
             ],
             minChunks: 2
         }),
