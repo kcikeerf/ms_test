@@ -289,10 +289,10 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor-english-question'],
-            filename: 'static/js/vendor-english-question.[chunkhash].js',
+            names: ['vendor-report'],
+            filename: 'static/js/vendor-report.[chunkhash].js',
             chunks: [
-                'zxSurveyEnglishQuestion'
+                'zxSurveyReport'
             ],
             minChunks: function(module){
                 return module.context && module.context.indexOf('node_modules') !== -1;
@@ -300,10 +300,10 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor-report'],
-            filename: 'static/js/vendor-report.[chunkhash].js',
+            names: ['vendor-english-question'],
+            filename: 'static/js/vendor-english-question.[chunkhash].js',
             chunks: [
-                'zxSurveyReport'
+                'zxSurveyEnglishQuestion'
             ],
             minChunks: function(module){
                 return module.context && module.context.indexOf('node_modules') !== -1;
@@ -382,29 +382,6 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             inject: true,
-            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
-            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
-            chunks: ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'],
-            minify: {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeRedundantAttributes: true,
-                useShortDoctype: true,
-                removeEmptyAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                keepClosingSlash: true,
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true,
-            },
-            chunksSortMode: function (a, b) {
-                let order = ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'];
-                return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
-            }
-        }),
-
-        new HtmlWebpackPlugin({
-            inject: true,
             template: paths.zxSurveyReport.htmlTemplate,
             filename: paths.zxSurveyReport.htmlOutput,
             chunks: ['manifest', 'common', 'vendor-report', 'zxSurveyReport'],
@@ -422,6 +399,29 @@ module.exports = {
             },
             chunksSortMode: function (a, b) {
                 let order = ['manifest', 'common', 'vendor-report', 'zxSurveyReport'];
+                return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
+            }
+        }),
+
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
+            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
+            chunks: ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'],
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+            chunksSortMode: function (a, b) {
+                let order = ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'];
                 return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
             }
         }),

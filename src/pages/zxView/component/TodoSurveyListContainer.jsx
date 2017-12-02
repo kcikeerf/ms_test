@@ -83,7 +83,7 @@ class ReportListContainer extends React.Component {
         return (
             <div style={style} className={this.state.classPreloader}>
                 <Preloader />
-                <div className="zy-report-container">
+                <div>
                     <div className="zy-container-top">
                         <div className="zy-nav-top">
                             <span className="glyphicon glyphicon-chevron-left zy-nav-navBack" onClick={this.handleNavBack.bind(this)}></span>

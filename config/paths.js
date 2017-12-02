@@ -101,13 +101,5 @@ module.exports = {
         htmlTemplate: resolveApp('public/index.html'),
         htmlOutput: 'html/zx-survey-english-question/index.html',
         indexJs:  resolveApp('src/pages/zxSurveyEnglishQuestion/index.jsx')
-    },
-    zxSurveyEnglishReport:{
-        entry:'zx-survey-english-report',
-        build: resolveApp('build/zxSurveyEnglishReport'),
-        public: resolveApp('public/zxSurveyEnglishReport'),
-        htmlTemplate: resolveApp('public/index.html'),
-        htmlOutput: 'html/zx-survey-english-report/index.html',
-        indexJs:  resolveApp('src/pages/zxSurveyEnglishReport/index.jsx')
-    },
+    }
 };
