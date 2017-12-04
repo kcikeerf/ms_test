@@ -140,7 +140,7 @@ let production = {
         },
         {
             ID: '5a20fc82ea336f4bb61df727',
-            QUESTION_URL: '/html/zx-survey-chinese-question',
+            QUESTION_URL: '/zx-survey/apps/zx-survey-chinese-question',
             VIEW_URL: '/zx-survey/apps/zx-survey-report',
             LABEL:'语文'
         }
