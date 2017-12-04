@@ -445,8 +445,8 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             inject: true,
-            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
-            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
+            template: paths.zxSurveyChineseQuestion.htmlTemplate,
+            filename: paths.zxSurveyChineseQuestion.htmlOutput,
             chunks: ['manifest', 'common', 'vendor-chinese-question', 'zxSurveyChineseQuestion'],
             minify: {
                 removeComments: true,
