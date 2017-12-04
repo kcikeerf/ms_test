@@ -102,6 +102,12 @@ let development = {
             QUESTION_URL: '/html/zx-survey-english-question',
             VIEW_URL: '/html/zx-survey-report',
             LABEL:'英语'
+        },
+        {
+            ID: '5a20fc82ea336f4bb61df727',
+            QUESTION_URL: '/html/zx-survey-chinese-question',
+            VIEW_URL: '/html/zx-survey-report',
+            LABEL:'语文'
         }
     ],
     URL_HOME:'/html',
@@ -131,6 +137,12 @@ let production = {
             QUESTION_URL: '/zx-survey/apps/zx-survey-english-question',
             VIEW_URL: '/zx-survey/apps/zx-survey-report',
             LABEL:'英语'
+        },
+        {
+            ID: '5a20fc82ea336f4bb61df727',
+            QUESTION_URL: '/html/zx-survey-chinese-question',
+            VIEW_URL: '/html/zx-survey-report',
+            LABEL:'语文'
         }
     ],
     URL_HOME:'/zx-survey/apps',

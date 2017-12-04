@@ -79,6 +79,10 @@ module.exports = {
         zxSurveyEnglishQuestion:[
             require.resolve('./polyfills'),
             paths.zxSurveyEnglishQuestion.indexJs
+        ],
+        zxSurveyChineseQuestion:[
+            require.resolve('./polyfills'),
+            paths.zxSurveyChineseQuestion.indexJs
         ]
     },
     output: {
@@ -311,16 +315,29 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor-chinese-question'],
+            filename: 'static/js/vendor-chinese-question.[chunkhash].js',
+            chunks: [
+                'zxSurveyChineseQuestion'
+            ],
+            minChunks: function(module){
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+
+        new webpack.optimize.CommonsChunkPlugin({
             names: ['common'],
             filename: 'static/js/common.[chunkhash].js',
             chunks: [
                 'vendor-view',
                 'vendor-question',
                 'vendor-english-question',
+                'vendor-chinese-question',
                 'vendor-report',
                 'zxView',
                 'zxSurveyQuestion',
                 'zxSurveyEnglishQuestion',
+                'zxSurveyChineseQuestion',
                 'zxSurveyReport'
             ],
             minChunks: 2
@@ -422,6 +439,29 @@ module.exports = {
             },
             chunksSortMode: function (a, b) {
                 let order = ['manifest', 'common', 'vendor-english-question', 'zxSurveyEnglishQuestion'];
+                return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
+            }
+        }),
+
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyEnglishQuestion.htmlTemplate,
+            filename: paths.zxSurveyEnglishQuestion.htmlOutput,
+            chunks: ['manifest', 'common', 'vendor-chinese-question', 'zxSurveyChineseQuestion'],
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+            chunksSortMode: function (a, b) {
+                let order = ['manifest', 'common', 'vendor-chinese-question', 'zxSurveyChineseQuestion'];
                 return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
             }
         }),

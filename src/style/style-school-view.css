@@ -7204,7 +7204,9 @@ input[type="radio"]:focus {
 .zx-report-describe {
   font-size: 14px;
   padding: 4px;
-  overflow: hidden; }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 .gs-btn-marign {
   margin: 0 4px; }
