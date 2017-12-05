@@ -30,7 +30,7 @@ let SurveyQuestion={
                     colCount:4,
                     isRequired: true,
                     name: 'question1',
-                    title: "<div class=\"my-block my-timu\" my-typetext=\"题\" timuindex=\"1\" title=\"\">\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\" title=\"\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">1.</span><strong><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">给下列加点字注音正确的一项是：（&nbsp; ）</span></strong></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\" title=\"\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">A.</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">不愠（　wēn　）&nbsp; 三省（　xǐng　）&nbsp; 罔（máng）&nbsp;&nbsp; 殆（tái）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">B.</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">不愠（　yùn　）&nbsp; 三省（　xǐng　）&nbsp; 罔（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">m</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ǎng）&nbsp;&nbsp; 殆（dài）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">C.不愠（　yùn　）&nbsp; 三省（　shěng　） 罔（wǎng）&nbsp;&nbsp; 殆（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">t</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ài）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">D.不愠（　yùn　）&nbsp; 三省（　xǐng　）&nbsp; 罔（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">w</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ǎng） </span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">&nbsp; </span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">殆（dài）</span></p>\n\n<p><span style=\"font-size:14pt\">&nbsp;</span></p>\n</div>\n"
+                    title: "<div class=\"my-block my-timu\" my-typetext=\"题\" timuindex=\"1\" title=\"\">\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\" title=\"\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">1.</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">给下列画横线字注音正确的一项是：（&nbsp; ）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\" title=\"\"><span style=\"font-size: 12pt; color: rgb(0, 0, 0);\">A.</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">不<u>愠</u>（wēn）&nbsp; 三<u>省</u>（xǐng）&nbsp; <u>罔</u>（máng）&nbsp;&nbsp; 殆（tái）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">B.</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">不<u>愠</u>（yùn）&nbsp; 三 <u>省</u>（xǐng）&nbsp; 罔（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">m</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ǎng）&nbsp;&nbsp; 殆（dài）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">C.不愠（　yùn　）&nbsp; 三省（　shěng　） 罔（wǎng）&nbsp;&nbsp; 殆（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">t</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ài）</span></p>\n\n<p style=\"margin-top:14pt; margin-bottom:8.15pt; text-align:left; line-height:14pt; widows:2; orphans:2\"><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">D.不愠（　yùn　）&nbsp; 三省（　xǐng　）&nbsp; 罔（</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">w</span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">ǎng） </span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">&nbsp; </span><span style=\"font-size: 14pt; color: rgb(0, 0, 0);\">殆（dài）</span></p>\n\n<p><span style=\"font-size:14pt\">&nbsp;</span></p>\n</div>\n"
                 }
             ],
             name: 'page1'
@@ -137,14 +137,6 @@ let SurveyQuestion={
                         {
                             value: 'B-10',
                             text: 'B'
-                        },
-                        {
-                            value: 'C-0',
-                            text: 'C'
-                        },
-                        {
-                            value: 'D-0',
-                            text: 'D'
                         }
                     ],
                     colCount: 4,
@@ -290,7 +282,7 @@ let SurveyQuestion={
                             text: 'A'
                         },
                         {
-                            value: 'B-10',
+                            value: 'B-5',
                             text: 'B'
                         },
                         {
@@ -319,7 +311,7 @@ let SurveyQuestion={
                             text: 'B'
                         },
                         {
-                            value: 'C-10',
+                            value: 'C-5',
                             text: 'C'
                         },
                         {

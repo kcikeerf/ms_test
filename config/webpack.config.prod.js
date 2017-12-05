@@ -83,6 +83,10 @@ module.exports = {
         zxSurveyChineseQuestion:[
             require.resolve('./polyfills'),
             paths.zxSurveyChineseQuestion.indexJs
+        ],
+        zxSurveyLyQuestion:[
+            require.resolve('./polyfills'),
+            paths.zxSurveyLyQuestion.indexJs
         ]
     },
     output: {
@@ -326,6 +330,17 @@ module.exports = {
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor-ly-question'],
+            filename: 'static/js/vendor-ly-question.[chunkhash].js',
+            chunks: [
+                'zxSurveyLyQuestion'
+            ],
+            minChunks: function(module){
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+
+        new webpack.optimize.CommonsChunkPlugin({
             names: ['common'],
             filename: 'static/js/common.[chunkhash].js',
             chunks: [
@@ -338,6 +353,7 @@ module.exports = {
                 'zxSurveyQuestion',
                 'zxSurveyEnglishQuestion',
                 'zxSurveyChineseQuestion',
+                'zxSurveyLyQuestion',
                 'zxSurveyReport'
             ],
             minChunks: 2
@@ -462,6 +478,29 @@ module.exports = {
             },
             chunksSortMode: function (a, b) {
                 let order = ['manifest', 'common', 'vendor-chinese-question', 'zxSurveyChineseQuestion'];
+                return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
+            }
+        }),
+
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyChineseQuestion.htmlTemplate,
+            filename: paths.zxSurveyChineseQuestion.htmlOutput,
+            chunks: ['manifest', 'common', 'vendor-ly-question', 'zxSurveyLyQuestion'],
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+            },
+            chunksSortMode: function (a, b) {
+                let order = ['manifest', 'common', 'vendor-ly-question', 'zxSurveyLyQuestion'];
                 return order.indexOf(a.names[0]) - order.indexOf(b.names[0]);
             }
         }),
