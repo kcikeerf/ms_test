@@ -1,8 +1,8 @@
-let SurveyQuestion={
+let SurveyQuestion = {
     goNextPageAutomatic: true,
     showPageTitles: false,
     showProgressBar: 'top',
-    showPageNumbers:false,
+    showPageNumbers: false,
     showTitle: false,
     pages: [
         {
@@ -22,7 +22,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question1',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><span style=\"color: rgb(0, 0, 0);\">1、三支桨有规律地在水里划，那声音就像一支乐曲</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><span style=\"color: rgb(0, 0, 0);\">A. lè</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.yuè</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>一、为加粗字选择正确读音（每题2分，共4分。）</p><span style=\"color: rgb(0, 0, 0);\">1、三支桨有规律地在水里划，那声音就像一支<strong><u>乐</u></strong>曲</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><span style=\"color: rgb(0, 0, 0);\">A. lè</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.yuè</p>\n"
                 }
             ],
             name: 'page1'
@@ -44,7 +44,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question2',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">2、更可恶的是遇到另一只母鸡的时候，它会下毒手。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><span style=\"color: rgb(0, 0, 0);\">A. è</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.&nbsp;wù</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>一、为加粗字选择正确读音（每题2分，共4分。）</p>2、更可<strong><u>恶</u></strong>的是遇到另一只母鸡的时候，它会下毒手。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><span style=\"color: rgb(0, 0, 0);\">A. è</span></p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.&nbsp;wù</p>\n"
                 }
             ],
             name: 'page2'
@@ -66,7 +66,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question3',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">3、即使是插上翅膀也难以(&nbsp;&nbsp;&nbsp;&nbsp;)重洋。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.飞渡&nbsp;&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.飞度</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>二、为句子选择正确的词语</p>3、即使是插上翅膀也难以(&nbsp;&nbsp;&nbsp;&nbsp;)重洋。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.飞渡&nbsp;&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.飞度</p>\n"
                 }
             ],
             name: 'page3'
@@ -88,7 +88,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question4',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">4、再看看小木偶，小木偶（ &nbsp;&nbsp;）笑嘻嘻的表情。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.一副&nbsp;&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.一付</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>二、为句子选择正确的词语</p>4、再看看小木偶，小木偶（ &nbsp;&nbsp;）笑嘻嘻的表情。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.一副&nbsp;&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.一付</p>\n"
                 }
             ],
             name: 'page4'
@@ -110,7 +110,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question5',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">5、那么多的绿叶，一簇（ &nbsp;&nbsp;）在另一处上面，不留一点儿空隙。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.叠&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.堆</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>二、为句子选择正确的词语</p>5、那么多的绿叶，一簇（ &nbsp;&nbsp;）在另一处上面，不留一点儿空隙。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.叠&nbsp;</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.堆</p>\n"
                 }
             ],
             name: 'page5'
@@ -132,7 +132,7 @@ let SurveyQuestion={
                     colCount: 2,
                     isRequired: true,
                     name: 'question6',
-                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">6、青草丛中（ ）着一条倾斜的隧道。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.隐藏</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.隐蔽</p>\n"
+                    title: "\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\"><p>二、为句子选择正确的词语</p>6、青草丛中（ ）着一条倾斜的隧道。</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">A.隐藏</p>\n\n<p style=\"margin-left:10.5pt; text-indent:-10.5pt\" title=\"\">B.隐蔽</p>\n"
                 }
             ],
             name: 'page6'

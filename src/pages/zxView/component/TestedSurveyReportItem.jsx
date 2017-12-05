@@ -67,7 +67,7 @@ class TestedSurveyReportItem extends React.Component {
         }
 
         let imgs;
-        if(testList.name === '《论语》 阅读微信测试'){
+        if(testList.name === '《论语》阅读微信测试'){
             imgs = <img src={zxly} style={{width:'100%',height:'100%'}} alt=""/>
         }else {
             imgs = <img src={zxbg} style={{width:'100%',height:'100%'}} alt=""/>
@@ -77,7 +77,7 @@ class TestedSurveyReportItem extends React.Component {
             <section className="zy-report-section">
                 <div className="zx-report-list">
                     <div className="zx-report-left-box">
-                        <img src={zxbg} style={{width:'100%',height:'100%'}} alt=""/>
+                        {imgs}
                     </div>
                     <div className="zx-report-right-box">
                         <h3 className="zx-report-brief">测试名称</h3>
