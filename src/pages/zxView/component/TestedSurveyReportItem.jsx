@@ -7,6 +7,7 @@ import ProgressReport from './ProgressReport';
 import {createCookie, getCookie, removeCookie} from 'zx-misc/handleCookie';
 
 import zxbg from 'zx-img/zxbg.png';
+import zxly from 'zx-img/ly.png';
 
 let config = require('zx-const')[process.env.NODE_ENV];
 
@@ -65,6 +66,12 @@ class TestedSurveyReportItem extends React.Component {
                 handleTestList = {this.props.handleTestList.bind(this)}/>
         }
 
+        let imgs;
+        if(testList.name === '《论语》 阅读微信测试'){
+            imgs = <img src={zxly} style={{width:'100%',height:'100%'}} alt=""/>
+        }else {
+            imgs = <img src={zxbg} style={{width:'100%',height:'100%'}} alt=""/>
+        }
 
         return (
             <section className="zy-report-section">

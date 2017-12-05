@@ -23,7 +23,7 @@ let SurveyQuestion={
                             text: 'C'
                         },
                         {
-                            value: 'C-0',
+                            value: 'D-0',
                             text: 'D'
                         }
                     ],

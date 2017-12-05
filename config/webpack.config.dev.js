@@ -80,6 +80,12 @@ module.exports = {
             require.resolve('./polyfills'),
             require.resolve('react-error-overlay'),
             paths.zxSurveyChineseQuestion.indexJs
+        ],
+        zxSurveyLyQuestion:[
+            require.resolve('react-dev-utils/webpackHotDevClient'),
+            require.resolve('./polyfills'),
+            require.resolve('react-error-overlay'),
+            paths.zxSurveyLyQuestion.indexJs
         ]
     },
     output: {
@@ -321,6 +327,13 @@ module.exports = {
             template: paths.zxSurveyChineseQuestion.htmlTemplate,
             filename: paths.zxSurveyChineseQuestion.htmlOutput,
             chunks: ['zxSurveyChineseQuestion'],
+        }),
+
+        new HtmlWebpackPlugin({
+            inject: true,
+            template: paths.zxSurveyLyQuestion.htmlTemplate,
+            filename: paths.zxSurveyLyQuestion.htmlOutput,
+            chunks: ['zxSurveyLyQuestion'],
         }),
 
         // ZX zxSurveyReport
