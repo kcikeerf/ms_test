@@ -354,7 +354,17 @@ function pupilTableInclicatorsLvTwo(data) {
         arr.push(selfArr[i].checkpoint);
         for (let j = 0; j < rawData.length; j++) {
             let lvnData = rawData[j].data.lvTwo[i];
-            arr.push((lvnData.score_average_percent * 100).toFixed(2));
+            let stmp;
+            if(lvnData.score_average_percent){
+                stmp = (lvnData.score_average_percent * 100).toFixed(2);
+            }else {
+                if(lvnData.score_average_percent == 0){
+                    stmp = (lvnData.score_average_percent * 100).toFixed(2);
+                }else {
+                    stmp = '-';
+                }
+            }
+            arr.push(stmp);
         }
         tmpTableData.push(arr);
     }

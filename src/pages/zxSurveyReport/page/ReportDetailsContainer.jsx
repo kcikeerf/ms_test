@@ -85,7 +85,8 @@ class ReportDetailsContainer extends React.Component {
 
             let responsePupil =JSON.parse(responeData[0]);
             let responseGroup = JSON.parse(responeGroupData[0]);
-
+            console.log(responsePupil)
+            console.log(responseGroup)
             let isGroup = handleIsGroup(responseGroup);
             if(!isGroup){
                 responseGroup = require('./group.json');
@@ -773,13 +774,13 @@ class ReportDetailsContainer extends React.Component {
                 // 学生报告
                 reportSpecificSettings = [
                     ...general,
-                    {
-                        name: 'tableInclicatorsLvOneData',
-                        order: 3,
-                        title: '一级指标的数据表',
-                        func: 'pupilTableInclicatorsLvOne',
-                        component: 'TableIndicator'
-                    },
+                    // {
+                    //     name: 'tableInclicatorsLvOneData',
+                    //     order: 3,
+                    //     title: '一级指标的数据表',
+                    //     func: 'pupilTableInclicatorsLvOne',
+                    //     component: 'TableIndicator'
+                    // },
                     {
                         name: 'tableInclicatorsLvTwoData',
                         order: 5,

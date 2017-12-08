@@ -140,8 +140,7 @@ class SectionPageQuizAnalysis extends React.Component {
                     </section>)
             }.bind(this));
         }else {
-
-            relatedQuizItem = <section className="zy-report-section" style={{textAlign:"center"}}>网络延时，请重新加载...</section>
+            relatedQuizItem = <section className="zy-report-section" style={{textAlign:"center"}}>正在建设中...</section>
         }
 
         let style = {
